@@ -15,7 +15,8 @@ export default new Router({
     Ticket,
     Cinema,
     Xiangqing,
-    Yanchu
+    Yanchu,
+    
     
   ]
 })

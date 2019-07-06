@@ -1,6 +1,6 @@
 <template>
     <div id="App">
-            <div class="box">
+        <div class="box">
         <div id="lcq-header01">
             <div class="header01">
                 <div class="header01-prelude">
@@ -347,5 +347,8 @@ export default {
 #App{
     width: 100%;
     height: 100%;
+}
+#app{
+    height: 100%
 }
 </style>

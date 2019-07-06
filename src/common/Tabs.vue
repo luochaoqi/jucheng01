@@ -1,23 +1,23 @@
 <template>
     <div class="tabs">
-          <div class="tabs">
+        
+        <div class="tabnav" >
+            <p class="first"></p>
+        </div>
         <div class="tabnav">
             <p></p>
+            <p>影院</p>
         </div>
         <div class="tabnav">
-            <p>aaa</p>
-            <p>bbb</p>
+            <p></p>
+            <p>票夹</p>
         </div>
         <div class="tabnav">
-            <p>aaa</p>
-            <p>bbb</p>
-        </div>
-        <div class="tabnav">
-            <p>aaa</p>
-            <p>bbb</p>
+            <p></p>
+            <p>我的</p>
         </div>
 
-    </div>
+   
     </div>
 </template>
  
@@ -26,13 +26,13 @@ import {bottomList} from "../api/home.js"
 export default {
       data(){
           return {
-            list:[]
+            list:[
+                
+            ]
           } 
       },
  async created(){
-       let a=await bottomList();
-       console.log(a)
-      this.list=a.data
+      
       }
 }
 </script>
@@ -56,14 +56,21 @@ export default {
 
 .tabnav p {
     height: 0.25rem;
-
+  overflow: hidden;
 }
 
 .tabnav p:nth-of-type(1) {
-    width: 0.22rem;
-    height: 0.22rem;
+   margin-top: 0.02rem;
+    height: 0.28rem;
     margin: 0 auto;
-    background-size: .25rem .25rem;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAbFBMVEUAAAAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKgso/AAAAI3RSTlMAoJD249lr8d/OwrSUdCgiEg0Fu6t6Vk5HLevam5qLb1MwLww+CtkAAAEsSURBVEjH7dTLjoIwGIZhoJSjICAieNb3/u9xYuxiBuzfzmI2E94VyedjBEODtbW1P60Ojwgdw9puB4UjNdjspKCIhApQkwX3kARiCfSWKSUPHOWklgVCFw5hxf8Gd1Wy/T5sk6rzxntAR2P7um7HSAN7X9zFvMvLMudd3HniO/SRBkw66uHuiQvYvm40zOM4D5PXNRR+eIJyPpUweeELjPNphIsPbhSn5XZCNR64gttyu0HlgTPSdrm1KZkbH2DzadzAwYl3UH8aa9g5sPnMMvOtIja/bpm5HxGb57LMPEkRJ1DZcAWJiDWqseFGoSUcwzmwdoZYwMDTjp+AiItAqHDgQcKDjM1p87hGP7o+zPkkYnPOaWZpczLacUnWmLeAWRvzb2WUwdraL/oCOmw2A/vD0QUAAAAASUVORK5CYII=) no-repeat 50%
+  background-size:  0.42rem 0.85rem;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAbFBMVEUAAAAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKgso/AAAAI3RSTlMAoJD249lr8d/OwrSUdCgiEg0Fu6t6Vk5HLevam5qLb1MwLww+CtkAAAEsSURBVEjH7dTLjoIwGIZhoJSjICAieNb3/u9xYuxiBuzfzmI2E94VyedjBEODtbW1P60Ojwgdw9puB4UjNdjspKCIhApQkwX3kARiCfSWKSUPHOWklgVCFw5hxf8Gd1Wy/T5sk6rzxntAR2P7um7HSAN7X9zFvMvLMudd3HniO/SRBkw66uHuiQvYvm40zOM4D5PXNRR+eIJyPpUweeELjPNphIsPbhSn5XZCNR64gttyu0HlgTPSdrm1KZkbH2DzadzAwYl3UH8aa9g5sPnMMvOtIja/bpm5HxGb57LMPEkRJ1DZcAWJiDWqseFGoSUcwzmwdoZYwMDTjp+AiItAqHDgQcKDjM1p87hGP7o+zPkkYnPOaWZpczLacUnWmLeAWRvzb2WUwdraL/oCOmw2A/vD0QUAAAAASUVORK5CYII=) no-repeat center
+}
+.tabs .tabnav .first{
+    height:0.42rem;
+    width: 0.42rem;
+    background: url(http://image.juooo.com/group1/M00/01/81/rAoKmVuQecmATGXZAAAUKcf_gA0402.png) no-repeat 50%;
+    background-position: 0 -0.4rem;
+    background-size:0.42rem 0.85rem;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="ticket">
-        <h1>ticket</h1>
+        <h1>2019.7.7 15.36</h1>
     </div>
 </template>
 

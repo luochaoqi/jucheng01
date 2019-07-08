@@ -196,11 +196,13 @@ export default {
     this.htolist = c.data.hots_show_list;
     this.floorlist = d.data.tour_show_list;
     this.yanchang = e.data;
-
-    this.mySwiper = new Swiper(".swiper-container", {
+    this.$nextTick(() => {
+       this.mySwiper = new Swiper(".swiper-container", {
       autoplay: 2000, //可选选项，自动滑动
       loop: true
-    });
+    })
+      })
+    
   },
   mounted() {
     // this.mySwiper.updateContainerSize();

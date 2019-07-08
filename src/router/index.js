@@ -4,6 +4,7 @@ import Home from './home'
 import Mine from './mine'
 import Ticket from './ticket'
 import Cinema from './cinema'
+import Detail from './detail'
 Vue.use(Router)
 
 export default new Router({
@@ -11,7 +12,7 @@ export default new Router({
     Home,
     Mine,
     Ticket,
-    Cinema
-    
+    Cinema,
+    Detail
   ]
 })

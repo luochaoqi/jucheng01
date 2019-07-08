@@ -18,3 +18,4 @@ export const floorList = ()=>http("get","/api/home/getFloorShow?city_abb=&city_i
 
 // 演唱会
 export const yanChang = ()=>http("get","/api/home/getFloorShow?city_abb=&city_id=0&&version=5.1.4&referer=2")
+export const bottomList = ()=>http("get","/api/home/getClassifyItem?city_id=0&operation_limit=5&&version=5.1.4&referer=2")

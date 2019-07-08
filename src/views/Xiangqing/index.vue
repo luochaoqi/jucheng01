@@ -12,15 +12,21 @@
         <div class="area">
             <div class="area-box">
                 <ul class="lcq-title-ul">
-                    <li>全部</li>
-                    <li>演唱会</li>
+                    <li>首页</li>
+                    <router-link :to="{name:'',params:{id:1}}" tag="li">演唱会</router-link>
+                   <router-link :to="{name: '',params:{id:2}}" tag="li">音乐会</router-link>
+                   <router-link :to="{name: '',params:{id:3}}" tag="li">话剧歌剧</router-link>
+                   <router-link :to="{name: '',params:{id:4}}" tag="li">儿童剧场</router-link>
+                   <router-link :to="{name: '',params:{id:5}}" tag="li">芭蕾舞蹈</router-link>
+                   
+                    <!-- <li ></li>
                     <li>歌唱会</li>
                     <li>话剧</li>
                     <li>戏剧</li>
                     <li>喜剧</li>
                     <li>电影</li>
                     <li>票子</li>
-                    <li>妹子</li>
+                    <li>妹子</li> -->
                 </ul>
             </div>
         
@@ -31,8 +37,8 @@
             </div>
         </div>
     </div>
-    
-    <Content dis="flag" />
+    <router-view></router-view>
+    <!-- <Content dis="flag" /> -->
 </div>
 </template>
 

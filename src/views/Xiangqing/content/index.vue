@@ -2,12 +2,13 @@
     <div id="App">
             <div id="lcq-conter">
         <div class="area-lcq">
+           
             <div class="conter-box">
                 <ul class="conter-ul">
                     <li v-for="(item,index) in list" :key="index" >
                         <p class="p01" >
                             <img :src="item.pic">
-                            <!-- <span>{{dis}}</span> -->
+                             
                         </p>
                         <div class="conter-li-box">
                             <span>{{item.show_time_top}}</span>
@@ -16,7 +17,6 @@
                             <p>{{item.max_price}}</p>
                         </div>
                     </li>
-                
                 </ul> 
             </div>
         </div>
@@ -26,19 +26,54 @@
 </template>
 
 <script>
-import {showList ,disList} from "../../../api/xiangqing.js"
+import {threList ,musicList,songList,allList,childList,baleiList,} from "../../../api/xiangqing.js"
 export default {
-    // props:["dis"],
+ props:["id"],
     data(){
         return {
             list:[]
         }
     },
  async  created(){
-        var a=await showList()
+        var a=await allList()
         console.log(a)
         this.list=a.data.list
         console.log(this.list)
+   },
+ watch:{
+      async  id(newval){
+          console.log(newval)
+          let b=""
+          switch(Number(newval)){
+              case 1 : 
+              b=await songList();
+              this.list=b.data.list
+              break;
+
+               case 2 : 
+              b=await musicList();
+              this.list=b.data.list
+              break;
+               case 3 : 
+              b=await threList();
+              this.list=b.data.list
+              break;
+               case 4 : 
+              b=await childList();
+              this.list=b.data.list
+              break;
+              case 5:
+              b=await baleiList();
+              this.list=b.data.list
+              break;
+              default :
+              b=await allList();
+              this.list=b.data.list
+              break;
+          }
+           
+          
+       }
    }
 }
 </script>

@@ -5,7 +5,8 @@ import Mine from './mine'
 import Ticket from './ticket'
 import Cinema from './cinema'
 import Xiangqing from './xiangqing/index.js'
-import Yanchu from './yanchu'
+import Yanchu from './yanchu' 
+// import Zimulu from './zimulu'
 Vue.use(Router)
 
 export default new Router({
@@ -16,6 +17,8 @@ export default new Router({
     Cinema,
     Xiangqing,
     Yanchu,
+    // Zimulu
+    
     
     
   ]

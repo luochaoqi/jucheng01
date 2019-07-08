@@ -1,6 +1,6 @@
 <template>
     <diV id="App">
-        <div id="lcq-head">
+                <div id="lcq-head">
             <div class="head-box">
                 <i class="iconfont  icon-fanhui"></i>
                 <p>欢聚橙卡</p>
@@ -9,10 +9,9 @@
                 </div>
             </div>
         </div>
-        <div class="zimulu">
-          <div class="zimulu-app">
-            <div class="zimulu-box01">            
-              <img src="http://image.juooo.com/group1/M00/02/44/rAoKNVvFTxWAS5R5AADYaD4FCg4828.png">
+        <div id="zimulu">
+            <div class="lcq-img">
+                <img src="./images/qqaa.jpg">
             </div>
             <div class="lcq-cen">
                 <ul>
@@ -59,111 +58,90 @@
                                 <span>演唱会</span>&nbsp;<span>音乐会</span>&nbsp;<span>话剧</span>&nbsp;<span>音乐亲子</span>
                                 <p>有效期：长期有效</p>
                                 <i>￥999</i>
-                        </div>
-                    </li>
+                            </div>
+                        </li>
                 </ul>
             </div>
-          </div>
         </div>
         <div class="foor-box">
-          <p>立即绑卡</p>
+            <p>立即绑卡</p>
         </div>
 
     </diV>
 </template>
 
 <script>
-export default {};
+export default {
+
+}
 </script>
+
 <style>
-#lcq-head {
-  width: 100%;
-  height: 0.6rem;
-  background: red;
-  position: absolute;
-  top: 0;
-  left: 0;
+    #zimulu{
+    position: absolute;
+    top: .6rem;
+    bottom: .6rem;
+    width: 100%;
+    overflow: auto;
 }
-.head-box {
-  width: 100%;
-  height: 0.6rem;
-  position: relative;
+#lcq-head{
+    width: 100%;
+    height: .6rem;
+    background: red;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
-.head-box > i {
-  position: absolute;
-  top: 0.1rem;
-  left: 2.4%;
-  font-size: 0.4rem;
+.head-box{
+    width: 100%;
+    height: .6rem;
+    position: relative;
 }
-.head-box > p {
-  width: 1.4rem;
-  height: 0.6rem;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 0.6rem;
-  font-size: 0.18rem;
-  font-weight: 900;
+.head-box>i{
+    position: absolute;
+    top: .1rem;
+    left: 2.4%;
+    font-size: .4rem;
 }
-.head-box .box01 {
-  position: absolute;
-  width: 0.8rem;
-  height: 0.6rem;
-  top: 0;
-  right: 0;
-  text-align: center;
-  line-height: 0.6rem;
+.head-box>p{
+    width: 1.4rem;
+    height: .6rem;
+    margin: 0 auto;
+    text-align: center;
+    line-height: .6rem;
+    font-size: .18rem;
+    font-weight: 900;
 }
-.head-box .box01 > span {
-  display: inline-block;
-  width: 3px;
-  height: 3px;
-  background: #000;
-  border-radius: 50%;
+.head-box .box01{
+    position: absolute;
+    width: .8rem;
+    height: .6rem;
+    top: 0;
+    right: 0;
+    text-align: center;
+    line-height: .6rem;
 }
-.foor-box {
-  width: 100%;
-  height: 0.6rem;
-  background: #ccc;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.head-box .box01>span{
+    display:inline-block;
+    width: 3px;
+    height: 3px;
+    background: #000;
+    border-radius: 50%;
 }
-.foor-box > p {
-  width: 1.2rem;
-  height: 0.6rem;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 0.6rem;
-  font-size: 0.16rem;
-  font-weight: 900;
+.lcq-img{
+    width: 100%;
+    height: 1.8rem;
 }
-.zimulu {
-  position: absolute;
-  top: 0.6rem;
-  bottom: 0.6rem;
-  width: 100%;
-  overflow: auto;
-}
-.zimulu-app {
-  width: 95%;
-  height: 100%;
-  margin: 0 auto;
-}
-.zimulu-box01 {
-  width: 100%;
-  height: 1.8rem;
-  background: #ccc;
-}
-.zimulu-box01 > img {
-  width: 100%;
-  height: 100%;
+.lcq-img>img{
+    width: 100%;
+    height: 100%;
 }
 .lcq-cen{
-  width: 95%;
+    width: 100%;
     height: 100%;
 }
 .lcq-cen>ul{
-    width: 100%;
+    width: 4rem;
     height: 100%;
     margin: 0 auto;
 }
@@ -176,7 +154,7 @@ export default {};
 .lcq-cen>ul>li>img{
     width: 100%;
     height: 100%;
-    opacity: .1;
+    opacity: .2;
 }
 .lcq-cen-box{
     width: 4rem;
@@ -208,6 +186,23 @@ export default {};
 .lcq-cen-box>i{
     font-size: .14rem;
     margin-top: .18rem;
+}
+.foor-box{
+    width: 100%;
+    height: .6rem;
+    background: #ccc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.foor-box>p{
+    width: 1.2rem;
+    height: .6rem;
+    margin: 0 auto;
+    text-align: center;
+    line-height: .6rem;
+    font-size: .16rem;
+    font-weight: 900;
 }
 
 </style>

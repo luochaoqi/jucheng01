@@ -1,8 +1,7 @@
 <template>
     <div id="App">
-            <div id="lcq-conter">
-        <div class="area-lcq">
-           
+        <div id="lcq-conter">
+        <div class="area-lcq" ref="movieBody">
             <div class="conter-box">
                 <router-link to="/yanchu">
                 <ul class="conter-ul">
@@ -28,12 +27,17 @@
 
 <script>
 import {threList ,musicList,songList,allList,childList,baleiList,} from "../../../api/xiangqing.js"
+import BScroll from "better-scroll";
 export default {
  props:["id"],
     data(){
         return {
             list:[]
         }
+    },
+    mounted(){
+        console.log(this.$refs.movieBody);
+        this.scroll=new BScroll(this.$refs.movieBody);
     },
  async  created(){
         var a=await allList()
@@ -79,25 +83,23 @@ export default {
 }
 </script>
 
-<style>
+<style >
     #lcq-conter{
         width: 100%;
         height: 100%;
+        overflow: hidden;
     }
     .area-lcq{
         width: 3.8rem;
         height: 100%; 
         margin: 0 auto;
     }
-
     .conter-box{
         width: 100%;
-        height: 100%;
     }
     .conter-ul{
         width: 100%;
         height:100%;
-    
         overflow: auto;
     }
     .conter-ul>li{

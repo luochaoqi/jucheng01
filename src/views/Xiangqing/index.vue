@@ -25,7 +25,7 @@
             <div class="lcq-location">
                 <i class="i"></i>
                 <span class="sp">深圳</span>
-                <!-- <i class="iconfont icon-dingwei"></i> -->
+                <i class="iconfont icon-icon-test"></i>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
     #lcq-heander{
     width: 100%;
     height: .38rem;
@@ -117,10 +117,10 @@ export default {
 }
 .lcq-location .sp{
     font-size: .14rem;
-    margin-left: .1rem;
 }
-.lcq-location .icon-dingwei{
+.lcq-location>i{
     font-size: .1rem;
+    margin-left: .08rem;
 }
 /* #lcq-conter{
     width: 100%;

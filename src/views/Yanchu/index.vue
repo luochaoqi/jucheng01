@@ -1,82 +1,81 @@
 <template>
-    <div id="App">
+    <div id="App" ref="movieBody">
         <div class="box">
-        <div id="lcq-header01">
-            <div class="header01">
-                <div class="header01-prelude">
-                    <i class="iconfont icon-fanhui"></i>
-                    <p>演出详情</p>
-                    <i class="iconfont icon-qq"></i>
-                    <i class="iconfont icon-shouye"></i>
+            <div id="lcq-header01">
+                <div class="header01">
+                    <div class="header01-prelude">
+                        <i class="iconfont icon-fanhui"></i>
+                        <p>演出详情</p>
+                        <i class="iconfont icon-qq"></i>
+                        <i class="iconfont icon-shouye"></i>
+                    </div>
+                    <div class="header01-banner">
+                        <p>
+                            <img src="http://image.juooo.com/group1/M00/02/34/rAoKmVyI3CWAQewVAACCNSlg3Yo045.jpg">
+                        </p>
+                        <div class="header01-banner-right">
+                            <p>{{list.scheInfo.intro}}</p>
+                            <i>{{list.scheInfo.price_interval}}</i>
+                        </div>
+                    </div>  
+                </div>    
+            </div>
+            <div class="lcq-time">
+                <div class="lcq-time-box">
+                    <p>08/01 - 08/15</p>
+                    <i>深圳|Skyland 未来科技馆</i>
                 </div>
-                <div class="header01-banner">
-                    <p>
-                        <img src="http://image.juooo.com/group1/M00/02/34/rAoKmVyI3CWAQewVAACCNSlg3Yo045.jpg">
-                    </p>
-                    <div class="header01-banner-right">
-                        <p>{{list.scheInfo.intro}}</p>
-                        <i>{{list.scheInfo.price_interval}}</i>
-                    </div>
-                </div>  
-            </div>    
-        </div>
-        <div class="lcq-time">
-            <div class="lcq-time-box">
-                <p>08/01 - 08/15</p>
-                <i>深圳|Skyland 未来科技馆</i>
+                <p>
+                    <i class="iconfont icon-dingwei"></i>
+                </p>
             </div>
-            <p>
-                <i class="iconfont icon-dingwei"></i>
-            </p>
-        </div>
-        <div class="plus">
-            <div class="plus-box">
-                <span>
-                    开卡送￥100 最高可省￥22   
-                </span>
-                <i> 立即开卡></i>
+            <div class="plus">
+                <div class="plus-box">
+                    <span>
+                        开卡送￥100 最高可省￥22   
+                    </span>
+                    <i> 立即开卡></i>
+                </div>
+            </div>
+            <div class="a"></div>
+            <div class="lcq-rule">
+                <p><span>入场：</span>儿童身高满70cm以上，需要购买全票</p>
+                <i>支持：&nbsp;&nbsp;电子票&nbsp;&nbsp;|&nbsp;&nbsp;同城满200免邮</i>
+            </div>
+            <div class="a"></div>
+            <div class="lcq-intro">
+                <h2>演出介绍</h2>
+                <ul>
+                    <li>
+                        <span>营业时间:</span>每周一闭馆&nbsp;（法定节假日除外）
+                    </li>
+                    <li>
+                        周二到周五：11:00—20:00
+                    </li>
+                    <li>
+                        周末及节假日：10:00—21:00
+                    </li>
+                    <li>
+                        <span>活动地点：</span>&nbsp;笋岗西路深业上城CEEC七楼
+                    </li>
+                </ul>
+            </div>
+            <div class="lcq-conter">
+                <ul class="conter-ul">
+                    <li v-for="(item,index) in lists" :key="index">
+                        <p class="p01">
+                            <img :src="item.pic">
+                        </p>
+                        <div class="conter-li-box">
+                            <span>{{item.show_time_bottom}}-{{item.show_time_top}}</span>
+                            <h3>{{item.name}}</h3>
+                            <i>{{item.venue_name}}</i>
+                            <p>￥280 起</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="a"></div>
-        <div class="lcq-rule">
-            <p><span>入场：</span>儿童身高满70cm以上，需要购买全票</p>
-            <i>支持：&nbsp;&nbsp;电子票&nbsp;&nbsp;|&nbsp;&nbsp;同城满200免邮</i>
-        </div>
-        <div class="a"></div>
-        <div class="lcq-intro">
-            <h2>演出介绍</h2>
-            <ul>
-                <li>
-                    <span>营业时间:</span>每周一闭馆&nbsp;（法定节假日除外）
-                </li>
-                <li>
-                    周二到周五：11:00—20:00
-                </li>
-                <li>
-                    周末及节假日：10:00—21:00
-                </li>
-                <li>
-                    <span>活动地点：</span>&nbsp;笋岗西路深业上城CEEC七楼
-                </li>
-            </ul>
-        </div>
-        <div class="lcq-conter">
-            <ul class="conter-ul">
-                <li v-for="(item,index) in lists" :key="index">
-                    <p class="p01">
-                        <img :src="item.pic">
-                    </p>
-                    <div class="conter-li-box">
-                        <span>{{item.show_time_bottom}}-{{item.show_time_top}}</span>
-                        <h3>{{item.name}}</h3>
-                        <i>{{item.venue_name}}</i>
-                        <p>￥280 起</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
     </div>
 </template>
 
@@ -90,22 +89,26 @@ export default {
      this.list=a.data;
      this.lists=b.data.list;
      console.log(this.lists)
- },
+    },
   data(){
         return {
             list:[],
             lists:[]
         }
+    },
+    mounted(){
+        console.log(this.$refs.movieBody);
+        this.scroll=new BScroll(this.$refs.movieBody);
+    }
 
-  }
    
 }
 </script>
 
-<style>
-    .box{
-    width: 100%;
+<style >
+.box{
     height: 100%;
+    width: 100%;
     overflow: auto;
 }
 #lcq-header01{
@@ -351,9 +354,9 @@ export default {
 }
 #App{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 #app{
-    height: 100%
+    width: 100%;
 }
 </style>

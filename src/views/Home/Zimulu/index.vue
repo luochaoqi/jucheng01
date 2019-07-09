@@ -1,6 +1,6 @@
 <template>
     <diV id="App">
-                <div id="lcq-head">
+        <div id="lcq-head">
             <div class="head-box">
                 <i class="iconfont  icon-fanhui"></i>
                 <p>欢聚橙卡</p>
@@ -11,15 +11,15 @@
         </div>
         <div id="zimulu">
             <div class="lcq-img">
-                <img src="">
+                <img src="http://image.juooo.com/group1/M00/02/61/rAoKmVysWziAFDB-AACn7HZ4yrI996.jpg">
             </div>
             <div class="lcq-cen">
                 <ul>
                     <li>
                         <img src="http://image.juooo.com/group1/M00/02/44/rAoKNVvFTxWAS5R5AADYaD4FCg4828.png">
                         <div class="lcq-cen-box">
-                            <h3>橙PLUS卡</h3>
-                            <span>演唱会</span>&nbsp;<span>音乐会</span>&nbsp;<span>话剧</span>&nbsp;<span>音乐亲子</span>
+                            <!-- <h3>橙PLUS卡</h3> -->
+                            <!-- <span>演唱会</span>&nbsp;<span>音乐会</span>&nbsp;<span>话剧</span>&nbsp;<span>音乐亲子</span> -->
                             <p>有效期：长期有效</p>
                             <i>￥999</i>
                         </div>
@@ -36,8 +36,8 @@
                     <li>
                         <img src="http://image.juooo.com/group1/M00/02/57/rAoKmVyd7WWATSq_AAA4Qmv49Mc061.jpg">
                         <div class="lcq-cen-box">
-                                <h3>橙PLUS卡</h3>
-                                <span>演唱会</span>&nbsp;<span>音乐会</span>&nbsp;<span>话剧</span>&nbsp;<span>音乐亲子</span>
+                                <!-- <h3>橙PLUS卡</h3> -->
+                                <!-- <span>演唱会</span>&nbsp;<span>音乐会</span>&nbsp;<span>话剧</span>&nbsp;<span>音乐亲子</span> -->
                                 <p>有效期：长期有效</p>
                                 <i>￥999</i>
                             </div>
@@ -88,7 +88,7 @@ export default {
 #lcq-head{
     width: 100%;
     height: .6rem;
-    background: red;
+    background: #fdfdfd;
     position: absolute;
     top: 0;
     left: 0;
@@ -132,7 +132,7 @@ export default {
 }
 .lcq-img{
     width: 100%;
-    height: 1.8rem;
+    height: 2.8rem;
 }
 .lcq-img>img{
     width: 100%;
@@ -141,6 +141,7 @@ export default {
 .lcq-cen{
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
 }
 .lcq-cen>ul{
     width: 4rem;
@@ -148,15 +149,17 @@ export default {
     margin: 0 auto;
 }
 .lcq-cen>ul>li{
-    width: 4rem;
+    width: 100%;
     height: 2.2rem;
     margin-top: .2rem;
     position: relative;
+    /* background: #ccc; */
 }
 .lcq-cen>ul>li>img{
     width: 100%;
     height: 100%;
-    opacity: .2;
+    /* opacity: .2; */
+
 }
 .lcq-cen-box{
     width: 4rem;
@@ -188,11 +191,12 @@ export default {
 .lcq-cen-box>i{
     font-size: .14rem;
     margin-top: .18rem;
+    color: #000;
 }
 .foor-box{
     width: 100%;
     height: .6rem;
-    background: #ccc;
+    background: rgba(255, 255, 255, 0.95);   
     position: absolute;
     bottom: 0;
     left: 0;

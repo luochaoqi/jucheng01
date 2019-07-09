@@ -1,8 +1,8 @@
 <template>
     <div id="App">
+        <Loading v-if="loadFlag"></Loading>
             <div id="lcq-conter">
         <div class="area-lcq">
-           
             <div class="conter-box">
                 <router-link to="/yanchu">
                 <ul class="conter-ul">
@@ -27,49 +27,70 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 import {threList ,musicList,songList,allList,childList,baleiList,} from "../../../api/xiangqing.js"
 export default {
  props:["id"],
     data(){
         return {
-            list:[]
+            list:[],
+            loadFlag:true
         }
     },
  async  created(){
         var a=await allList()
-        console.log(a)
-        this.list=a.data.list
-        console.log(this.list)
+        if(a){
+          this.list=a.data.list;
+          this.loadFlag=false;
+        }
+        
+       
+
+       this.$nextTick(() => {
+       let wrapper = document.querySelector('.area-lcq')
+       let scroll = new BScroll(wrapper, {});
+    })
+
+
+
+
    },
  watch:{
       async  id(newval){
+          this.loadFlag=true;
           console.log(newval)
           let b=""
           switch(Number(newval)){
               case 1 : 
               b=await songList();
-              this.list=b.data.list
+              this.list=b.data.list;
+               this.loadFlag=false;
               break;
 
                case 2 : 
               b=await musicList();
-              this.list=b.data.list
+              this.list=b.data.list;
+                this.loadFlag=false;
               break;
                case 3 : 
               b=await threList();
-              this.list=b.data.list
+              this.list=b.data.list;
+                this.loadFlag=false;
               break;
                case 4 : 
               b=await childList();
-              this.list=b.data.list
+              this.list=b.data.list;
+              this.loadFlag=false;
               break;
               case 5:
               b=await baleiList();
-              this.list=b.data.list
+              this.list=b.data.list;
+              this.loadFlag=false;
               break;
               default :
               b=await allList();
-              this.list=b.data.list
+              this.list=b.data.list;
+              this.loadFlag=false;
               break;
           }
            
@@ -92,7 +113,7 @@ export default {
 
     .conter-box{
         width: 100%;
-        height: 100%;
+       
     }
     .conter-ul{
         width: 100%;

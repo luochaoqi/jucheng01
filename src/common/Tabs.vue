@@ -4,7 +4,7 @@
         <div class="tabnav" >
             <p class="first"></p>
         </div>
-        <div class="tabnav">
+        <div class="tabnav" @click="toList">
             <p></p>
             <p>影院</p>
         </div>
@@ -30,6 +30,11 @@ export default {
                 
             ]
           } 
+      },
+      methods:{
+       toList(){
+           this.$router.push("/list")
+       }
       },
  async created(){
       

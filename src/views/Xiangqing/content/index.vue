@@ -2,22 +2,23 @@
     <div id="App">
             <div id="lcq-conter">
         <div class="area-lcq">
+           
             <div class="conter-box">
+                <router-link to="/yanchu">
                 <ul class="conter-ul">
                     <li v-for="(item,index) in list" :key="index" >
                         <p class="p01" >
                             <img :src="item.pic">
-                            <span>{{dis}}</span>
                         </p>
                         <div class="conter-li-box">
                             <span>{{item.show_time_top}}</span>
-                            <h3>{{item.name}}</h3>
+                            <h4>{{item.name}}</h4>
                             <i>{{item.venue_name}}</i>
                             <p>{{item.max_price}}</p>
                         </div>
                     </li>
-                
                 </ul> 
+                </router-link>
             </div>
         </div>
     </div>
@@ -26,24 +27,55 @@
 </template>
 
 <script>
-import {showList ,disList} from "../../../api/xiangqing.js"
+import {threList ,musicList,songList,allList,childList,baleiList,} from "../../../api/xiangqing.js"
 export default {
-    props:["dis"],
+ props:["id"],
     data(){
         return {
             list:[]
         }
     },
  async  created(){
-        var a=await showList()
+        var a=await allList()
         console.log(a)
         this.list=a.data.list
         console.log(this.list)
    },
-   updated(){
-         var b= disList()
-        this.list=b.data.list;  
+ watch:{
+      async  id(newval){
+          console.log(newval)
+          let b=""
+          switch(Number(newval)){
+              case 1 : 
+              b=await songList();
+              this.list=b.data.list
+              break;
+
+               case 2 : 
+              b=await musicList();
+              this.list=b.data.list
+              break;
+               case 3 : 
+              b=await threList();
+              this.list=b.data.list
+              break;
+               case 4 : 
+              b=await childList();
+              this.list=b.data.list
+              break;
+              case 5:
+              b=await baleiList();
+              this.list=b.data.list
+              break;
+              default :
+              b=await allList();
+              this.list=b.data.list
+              break;
           }
+           
+          
+       }
+   }
 }
 </script>
 
@@ -71,7 +103,6 @@ export default {
     .conter-ul>li{
         width: 3.8rem;
         height: 1.5rem;
-        /* border-bottom: 1px solid #ccc; */
     }
     .conter-ul>li .p01{
         width: 1rem;
@@ -93,9 +124,9 @@ export default {
     .conter-li-box>span{
         font-size: .14rem;
     }
-    .conter-li-box>h3{
+    .conter-li-box>h4{
         margin: .1rem 0 .1rem 0;
-        font-size: .16rem;
+        font-size: .14rem;
     }
     .conter-li-box>i{
         font-size: .14rem;

@@ -11,11 +11,11 @@
                 </div>
                 <div class="header01-banner">
                     <p>
-                        <img src="http://image.juooo.com/group1/M00/02/E6/rAoKNVyQpK2ATCKlAACdsDoZYcY165.jpg">
+                        <img src="http://image.juooo.com/group1/M00/02/34/rAoKmVyI3CWAQewVAACCNSlg3Yo045.jpg">
                     </p>
                     <div class="header01-banner-right">
-                        <p>Skyland 未来科技馆</p>
-                        <i>￥168-248</i>
+                        <p>{{list.scheInfo.intro}}</p>
+                        <i>{{list.scheInfo.price_interval}}</i>
                     </div>
                 </div>  
             </div>    
@@ -62,25 +62,14 @@
         </div>
         <div class="lcq-conter">
             <ul class="conter-ul">
-                <li>
+                <li v-for="(item,index) in lists" :key="index">
                     <p class="p01">
-                        <img src="http://image.juooo.com/group1/M00/03/01/rAoKNVyhceeADu8DAACvlzeklJ8752.jpg">
+                        <img :src="item.pic">
                     </p>
                     <div class="conter-li-box">
-                        <span>12/04 - 12/07</span>
-                        <h3>音乐剧史诗巨作《贝隆夫<br>人》Evita-深圳站</h3>
-                        <i>南山文体中心剧院大剧院</i>
-                        <p>￥280 起</p>
-                    </div>
-                </li>
-                <li>
-                    <p class="p01">
-                        <img src="http://image.juooo.com/group1/M00/03/01/rAoKNVyhceeADu8DAACvlzeklJ8752.jpg">
-                    </p>
-                    <div class="conter-li-box">
-                        <span>12/04 - 12/07</span>
-                        <h3>音乐剧史诗巨作《贝隆夫<br>人》Evita-深圳站</h3>
-                        <i>南山文体中心剧院大剧院</i>
+                        <span>{{item.show_time_bottom}}-{{item.show_time_top}}</span>
+                        <h3>{{item.name}}</h3>
+                        <i>{{item.venue_name}}</i>
                         <p>￥280 起</p>
                     </div>
                 </li>
@@ -92,8 +81,24 @@
 </template>
 
 <script>
+import {yanChu,Xunhuan} from "../../api/xiangqing.js"
 export default {
+ async created(){
+    var a=await yanChu()
+    // console.log(a.data.scheInfo.intro)
+    var b=await Xunhuan()
+     this.list=a.data;
+     this.lists=b.data.list;
+     console.log(this.lists)
+ },
+  data(){
+        return {
+            list:[],
+            lists:[]
+        }
 
+  }
+   
 }
 </script>
 
@@ -182,7 +187,7 @@ export default {
     font-size: .2rem;
     color: #fff;
     font-weight: 900;
-    margin:.08rem 0 1rem 0;
+    margin:.08rem 0 .5rem 0;
 }
 .header01-banner-right>i{
     font-size: .18rem;

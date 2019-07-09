@@ -12,15 +12,13 @@
         <div class="area">
             <div class="area-box">
                 <ul class="lcq-title-ul">
-                    <li>全部</li>
-                    <li @click="abc(1)">演唱会</li>
-                    <li @click="abc(2)">歌唱会</li>
-                    <li>话剧</li>
-                    <li>戏剧</li>
-                    <li>喜剧</li>
-                    <li>电影</li>
-                    <li>票子</li>
-                    <li>妹子</li>
+                   <router-link :to="{name:'con',params:{id:6}}" tag="li">全部</router-link>
+                   <router-link :to="{name:'con',params:{id:1}}" tag="li">演唱会</router-link>
+                   <router-link :to="{name:'con',params:{id:2}}" tag="li">音乐会</router-link>
+                   <router-link :to="{name:'con',params:{id:3}}" tag="li">话剧歌剧</router-link>
+                   <router-link :to="{name:'con',params:{id:4}}" tag="li">儿童剧场</router-link>
+                   <router-link :to="{name:'con',params:{id:5}}" tag="li">芭蕾舞蹈</router-link>
+                   
                 </ul>
             </div>
         
@@ -31,8 +29,8 @@
             </div>
         </div>
     </div>
-    
-    <Content :dis="flag" />
+    <router-view></router-view>
+    <!-- <Content dis="flag" /> -->
 </div>
 </template>
 
@@ -40,19 +38,6 @@
 import Content from "./content";
 
 export default {
-    data(){
-        return {
-            flag:""
-        }
-    },
-    methods:{
-    abc(val){
-       this.flag=val
-    }
-
-
-
-    },
   components:{
       Content
   }
@@ -66,6 +51,7 @@ export default {
     background: #fefefe;
     border-bottom: 1px solid #ccc;
     position: relative;
+    z-index:100;
 }
 #lcq-heander .show{
     width: .4rem;

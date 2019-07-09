@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Tabs from "./Tabs";
+
 Vue.component("Tabs",Tabs)
 
 

@@ -82,6 +82,7 @@
 <script>
 import {DetailList, siteList} from '../../api/home.js'
 export default {
+    props:["id"],
     name:"detail",
     data(){
         return{
@@ -90,13 +91,16 @@ export default {
         }
     },
     async created(){
+
+        
+
         var data = await DetailList();
         this.list = data.data.scheInfo;
-
+         
         var siteData = await siteList();
         this.siteList = siteData.data.tourlist;
-        console.log(this.siteList)
-        console.log(this.siteList[0].city_name)
+        // console.log(this.siteList)
+        // console.log(this.siteList[0].city_name)
     }
 }
 </script>
@@ -322,9 +326,13 @@ export default {
 }
 
 #MainThree .details {
-    font-size: 0.13rem;
+    width: 2.98rem;
+    height: 0.25rem;
+    margin-top: 15px;
     float: right;
-    margin-right: 0.1rem;
+    line-height: 0.25rem;
+    font-weight: 700;
+    margin-right: 0.08rem;
 }
 #MainFour {
     width: 100%;

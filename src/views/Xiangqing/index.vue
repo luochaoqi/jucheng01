@@ -13,8 +13,8 @@
             <div class="area-box">
                 <ul class="lcq-title-ul">
                     <li>全部</li>
-                    <li>演唱会</li>
-                    <li>歌唱会</li>
+                    <li @click="abc(1)">演唱会</li>
+                    <li @click="abc(2)">歌唱会</li>
                     <li>话剧</li>
                     <li>戏剧</li>
                     <li>喜剧</li>
@@ -23,126 +23,39 @@
                     <li>妹子</li>
                 </ul>
             </div>
+        
             <div class="lcq-location">
                 <i class="i"></i>
                 <span class="sp">深圳</span>
-                <i class="iconfont icon-dingwei"></i>
+                <!-- <i class="iconfont icon-dingwei"></i> -->
             </div>
         </div>
     </div>
-    <div id="lcq-conter">
-        <div class="area-lcq">
-            <div class="conter-box">
-                <ul class="conter-ul">
-                    <li>
-                        <p class="p01">
-                            <img src="http://image.juooo.com/group1/M00/03/01/rAoKNVyhceeADu8DAACvlzeklJ8752.jpg">
-                        </p>
-                        <div class="conter-li-box">
-                            <span>12/04 - 12/07</span>
-                            <h3>音乐剧史诗巨作《贝隆夫<br>人》Evita-深圳站</h3>
-                            <i>南山文体中心剧院大剧院</i>
-                            <p>￥280 起</p>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="p01">
-                            <img src="http://image.juooo.com/group1/M00/01/DC/rAoKmVw9dvuAUxQLAABtVsXkcoQ323.jpg"/>
-                        </p>
-                        <div class="conter-li-box">
-                            <span>12/04 - 12/07</span>
-                            <h3>法语音乐剧《摇滚红与<br>黑》-深圳站</h3>
-                            <i>南山文体中心剧院大剧院</i>
-                            <p>￥180 起</p>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="p01">
-                            <img src="http://image.juooo.com/group1/M00/02/8F/rAoKNVxK05mAdr_DAABGRftrtSM764.jpg"/>
-                        </p>
-                        <div class="conter-li-box">
-                            <span>12/04 - 12/07</span>
-                            <h3>2019年世界经典原版音乐剧《猫》CATS -深圳</h3>
-                            <i>南山文体中心剧院大剧院</i>
-                            <p>￥380 起</p>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="p01">
-                            <img src="http://image.juooo.com/group1/M00/01/EA/rAoKmVxf_YOAWFH1AACbzlokY7w035.jpg"/>
-                        </p>
-                        <div class="conter-li-box">
-                            <span>12/04 - 12/07</span>
-                            <h3>2019年法语音乐剧《罗密欧与朱丽叶》-深圳站</h3>
-                            <i>南山文体中心剧院大剧院</i>
-                            <p>￥280 起</p>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="p01">
-                            <img src="http://image.juooo.com/group1/M00/02/BA/rAoKmV0HKROANbIoAAC-qZa523k987.jpg"/>
-                        </p>
-                        <div class="conter-li-box">
-                            <span>12/04 - 12/07</span>
-                            <h3>法国音乐剧《放牛班的春天》中文版 暖心上演--深圳</h3>
-                            <i>南山文体中心剧院大剧院</i>
-                            <p>￥180 起</p>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="p01">
-                            <img src="http://image.juooo.com/group1/M00/02/E6/rAoKNVyQ2dSAYVaTAABwKvQZQrg035.jpg"/>
-                        </p>
-                        <div class="conter-li-box">
-                            <span>12/04 - 12/07</span>
-                            <h3>伦敦西区原版音乐剧《玛蒂尔达》Matilda The Musical</h3>
-                            <i>南山文体中心剧院大剧院</i>
-                            <p>￥280 起</p>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="p01">
-                            <img src="http://image.juooo.com/group1/M00/02/9D/rAoKmVzjb2eAKUBSAACQ3c-XZgQ313.jpg"/>
-                        </p>
-                        <div class="conter-li-box">
-                            <span>12/04 - 12/07</span>
-                            <h3>【深圳】音乐剧TUT TUT<br>《变形计》</h3>
-                            <i>南山文体中心剧院大剧院</i>
-                            <p>￥280 起</p>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="p01">
-                            <img src="http://image.juooo.com/group1/M00/02/CC/rAoKmV0dl6uAXuMsAAPfExtxZD8955.jpg"/>
-                        </p>
-                        <div class="conter-li-box">
-                            <span>12/04 - 12/07</span>
-                            <h3>20周年纪念版*法语音乐剧里程碑《巴黎圣母院》- 深圳站</h3>
-                            <i>南山文体中心剧院大剧院</i>
-                            <p>￥280 起</p>
-                        </div>
-                    </li>
-                    <li>
-                        <p class="p01">
-                            <img src="http://image.juooo.com/group1/M00/02/F7/rAoKNVyYkEOAUiXLAAC6AwaTGJM511.jpg"/>
-                        </p>
-                        <div class="conter-li-box">
-                            <span>12/04 - 12/07</span>
-                            <h3>外百老汇“怦然心动”恋爱音乐剧《长腿叔叔》中文版 -深圳站</h3>
-                            <i>南山文体中心剧院大剧院</i>
-                            <p>￥180 起</p>
-                        </div>
-                    </li>
-                </ul> 
-            </div>
-        </div>
-    </div>
+    
+    <Content :dis="flag" />
 </div>
 </template>
 
 <script>
-export default {
+import Content from "./content";
 
+export default {
+    data(){
+        return {
+            flag:""
+        }
+    },
+    methods:{
+    abc(val){
+       this.flag=val
+    }
+
+
+
+    },
+  components:{
+      Content
+  }
 }
 </script>
 
@@ -203,7 +116,7 @@ export default {
     color: red;
 }
 .lcq-location{
-    width: 1rem;
+    width: .8rem;
     height: .4rem;
     float: left;
     text-align: center;
@@ -221,9 +134,9 @@ export default {
     margin-left: .1rem;
 }
 .lcq-location .icon-dingwei{
-    font-size: .14rem;
+    font-size: .1rem;
 }
-#lcq-conter{
+/* #lcq-conter{
     width: 100%;
     height: 100%;
 }
@@ -247,7 +160,7 @@ export default {
     width: 3.8rem;
     height: 1.5rem;
     /* border-bottom: 1px solid #ccc; */
-}
+/* }
 .conter-ul>li .p01{
     width: 1rem;
     height: 1.4rem;
@@ -281,9 +194,9 @@ export default {
     margin-top: .08rem;
     color:red;
     margin-top: .14rem;
-}
-#App{
+}  */
+/* #App{
     width: 100%;
     height: 100%;
-}
+} */
 </style>

@@ -5,7 +5,7 @@
             <p class="show">
                 演出
             </p>
-            <i class="iconfont icon-fanhui"></i>
+            <i class="iconfont icon-fanhui" @click="tohome"></i>
         </div>    
     </div>
     <div id="lcq-title">
@@ -29,7 +29,10 @@
             </div>
         </div>
     </div>
+   
     <router-view></router-view>
+    
+
     <!-- <Content dis="flag" /> -->
 </div>
 </template>
@@ -42,6 +45,11 @@ export default {
    
   components:{
       Content
+  },
+  methods:{
+      tohome(){
+        this.$router.push("/Home");
+      }
   }
 }
 </script>

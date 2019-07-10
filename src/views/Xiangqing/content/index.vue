@@ -6,7 +6,7 @@
             <div class="conter-box">
                 <router-link to="/yanchu">
                 <ul class="conter-ul">
-                    <li v-for="(item,index) in list" :key="index" >
+                    <li @click="toyanchu" v-for="(item,index) in list" :key="index">
                         <p class="p01" >
                             <img :src="item.pic">
                         </p>
@@ -28,22 +28,30 @@
 
 <script>
 import BScroll from 'better-scroll'
-import {threList ,musicList,songList,allList,childList,baleiList,} from "../../../api/xiangqing.js"
+import {threList ,musicList,songList,allList,childList,baleiList,abc} from "../../../api/xiangqing.js"
 // import BScroll from "better-scroll";
 export default {
- props:["id"],
+    props:["id"],
     data(){
         return {
             list:[],
             loadFlag:true
         }
     },
+    methods:{
+       toyanchu(){
+           conlose.log(1111);
+           this.$router.push("/Yanchu");
+       }
+    },
     mounted(){
         console.log(this.$refs.movieBody);
         this.scroll=new BScroll(this.$refs.movieBody);
     },
  async  created(){
-        var a=await allList()
+        var a=await allList();
+        var pratice=await abc();
+        console.log(pratice)
         if(a){
           this.list=a.data.list;
           this.loadFlag=false;
@@ -53,7 +61,14 @@ export default {
 
        this.$nextTick(() => {
        let wrapper = document.querySelector('.area-lcq')
-       let scroll = new BScroll(wrapper, {});
+       let scroll = new BScroll(wrapper, {
+            scrol1Y: true,
+             scrol1X: false,
+             mousewhee1: true,
+            click: true,
+             taps: true
+
+       });
     })
 
 

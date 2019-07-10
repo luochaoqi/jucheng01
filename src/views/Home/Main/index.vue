@@ -1,10 +1,10 @@
 <template>
-<div class="home">
-  <Loading v-if="loadFlag"></Loading>
+  <div class="home">
+    <Loading v-if="loadFlag"></Loading>
     <div class="nav_wrap">
       <div class="nav">
         <div class="local fla">
-          <span @click="toZimulu">全国</span>
+          <span v-html="currentcity"></span>
         </div>
         <div class="inpu fla">
           <span>搜索热门演出</span>
@@ -19,158 +19,156 @@
         </div>
       </div>
     </div>
-   
+
     <div class="box_wrap">
       <div class="scroll_inside">
-      <div class="box">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(item,index) in slidelist" :key="index">
-              <img :src="item.touch_image_url" alt />
+        <div class="box">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="(item,index) in slidelist" :key="index">
+                <img :src="item.touch_image_url" alt />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="sec">
-        <div class="classify">
-          <div class="item">
-             <router-link to="/list" v-for="(items,index) in clasifylist" :key="index">
-              <img :src="items.pic" alt />
-              <br />
-              <span>{{items.name}}</span>
-            </router-link>
+        <div class="sec">
+          <div class="classify">
+            <div class="item">
+              <router-link to="/list" v-for="(items,index) in clasifylist" :key="index">
+                <img :src="items.pic" alt />
+                <br />
+                <span>{{items.name}}</span>
+              </router-link>
+            </div>
           </div>
-        </div>
-        <div class="opa">
-          <div class="opera">
-            <div class="ver"></div>
-            
-            <a href >
-              <div class="detail" >
-                <p >橙卡PLUS</p>
-                <p>
-                  限时送
-                  <span>100元</span>
-                </p>
-              </div>
-              <div class="pic">
+          <div class="opa">
+            <div class="opera">
+              <div class="ver"></div>
+
+              <a href>
+                <div class="detail">
+                  <p>橙卡PLUS</p>
+                  <p>
+                    限时送
+                    <span>100元</span>
+                  </p>
+                </div>
+                <div class="pic">
+                  <img
+                    src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyuly2Abyo9AAAFqTMeVeI867.png"
+                    alt
+                  />
+                </div>
+              </a>
+            </div>
+            <div class="opera">
+              <div class="ver"></div>
+              <a href>
+                <div class="detail">
+                  <p>橙卡PLUS</p>
+                  <p>
+                    限时送
+                    <span>100元</span>
+                  </p>
+                </div>
+                <div class="pic">
+                  <img
+                    src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyuly2Abyo9AAAFqTMeVeI867.png"
+                    alt
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="opc"></div>
+          <div class="opb">
+            <li>
+              <div class="ver"></div>
+              <a href>
+                <p>聚特惠</p>
+                <p>优惠不止一点点</p>
                 <img
-                  src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyuly2Abyo9AAAFqTMeVeI867.png"
+                  src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyumIiAMpqmAAAGebZ70tk573.png"
                   alt
                 />
-              </div>
-            </a>
-          </div>
-          <div class="opera">
-            <div class="ver"></div>
-            <a href>
-              <div class="detail">
-                <p>橙卡PLUS</p>
-                <p>
-                  限时送
-                  <span>100元</span>
-                </p>
-              </div>
-              <div class="pic">
+              </a>
+            </li>
+            <li>
+              <div class="ver"></div>
+              <a href>
+                <p>聚特惠</p>
+                <p>优惠不止一点点</p>
                 <img
-                  src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyuly2Abyo9AAAFqTMeVeI867.png"
+                  src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyumIiAMpqmAAAGebZ70tk573.png"
                   alt
                 />
+              </a>
+            </li>
+            <li>
+              <div class="ver"></div>
+              <a href>
+                <p>聚特惠</p>
+                <p>优惠不止一点点</p>
+                <img
+                  src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyumIiAMpqmAAAGebZ70tk573.png"
+                  alt
+                />
+              </a>
+            </li>
+          </div>
+        </div>
+
+        <div class="hot">
+          <div class="hot_title">
+            <span>热门演出</span>
+          </div>
+          <div class="hot_contet">
+            <div class="hot_item" v-for="(item,index) in htolist" :key="index">
+              <a href>
+                <img :src="item.pic" alt />
+                <h2>{{item.show_name}}</h2>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="floorshow">
+          <div class="sing" v-for="(item,index) in yanchang" :key="index">
+            <p>{{item.title}}</p>
+            <div class="bg">
+              <div class="left">
+                <img :src="item.list[0].pic" alt />
+                <span>555</span>
               </div>
-            </a>
-          </div>
-        </div>
-        <div class="opc"></div>
-        <div class="opb">
-          <li>
-            <div class="ver"></div>
-            <a href>
-              <p>聚特惠</p>
-              <p>优惠不止一点点</p>
-              <img
-                src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyumIiAMpqmAAAGebZ70tk573.png"
-                alt
-              />
-            </a>
-          </li>
-          <li>
-            <div class="ver"></div>
-            <a href>
-              <p>聚特惠</p>
-              <p>优惠不止一点点</p>
-              <img
-                src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyumIiAMpqmAAAGebZ70tk573.png"
-                alt
-              />
-            </a>
-          </li>
-          <li>
-            <div class="ver"></div>
-            <a href >
-              <p>聚特惠</p>
-              <p>优惠不止一点点</p>
-              <img
-                src="http://image.juooo.com/group1/M00/03/0D/rAoKNVyumIiAMpqmAAAGebZ70tk573.png"
-                alt
-              />
-            </a>
-          </li>
-        </div>
-      </div>
-
-      <div class="hot">
-        <div class="hot_title">
-          <span>热门演出</span>
-        </div>
-        <div class="hot_contet">
-          <div class="hot_item" v-for="(item,index) in htolist" :key="index">
-            <a href>
-              <img :src="item.pic" alt />
-              <h2>{{item.show_name}}</h2>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="floorshow">
-        <div class="sing" v-for="(item,index) in yanchang" :key="index">
-          <p>{{item.title}}</p>
-          <div class="bg">
-            <div class="left">
-              <img :src="item.list[0].pic" alt />
-              <span>555</span>
+              <div class="right">
+                <p>{{item.list[0].date}}</p>
+                <h3>{{item.list[0].schedular_name}}</h3>
+                <p>{{item.list[0].venue_name}}</p>
+              </div>
             </div>
-            <div class="right">
-              <p>{{item.list[0].date}}</p>
-              <h3>{{item.list[0].schedular_name}}</h3>
-              <p>{{item.list[0].venue_name}}</p>
-            </div>
-          </div>
-          <div class="flow">
-            <div class="flowitem_wrap">
-              <div class="flow_item" v-for="(items,index) in item.list" :key="index">
-                <a href>
-                  <div class="flow_img">
-                    <img :src="items.pic" alt="">
-                  </div>
-                  <h3>{{items.schedular_name}}</h3>
-                  <p>{{items.low_price}}</p>
-                </a>
+            <div class="flow">
+              <div class="flowitem_wrap">
+                <div class="flow_item" v-for="(items,index) in item.list" :key="index">
+                  <a href>
+                    <div class="flow_img">
+                      <img :src="items.pic" alt />
+                    </div>
+                    <h3>{{items.schedular_name}}</h3>
+                    <p>{{items.low_price}}</p>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-   </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
-import BScroll from 'better-scroll'
+import BScroll from "better-scroll";
 import {
   slideList,
   bottomList,
@@ -178,14 +176,15 @@ import {
   floorList,
   yanChang
 } from "../../../api/home.js";
+import { constants } from 'crypto';
 
-export default{
-    methods:{
-        toZimulu(){
-            this.$router.push("/zimulu")
-        }
-    },
-data() {
+export default {
+  methods: {
+    toZimulu() {
+      this.$router.push("/zimulu");
+    }
+  },
+  data() {
     return {
       slidelist: [],
       clasifylist: [],
@@ -193,52 +192,52 @@ data() {
       floorlist: [],
       mySwiper: "",
       yanchang: [],
-      loadFlag:true
+      loadFlag: true,
+      currentcity:"全国"
     };
   },
-  async created() {    
+  async created() {
+    
     let a = await slideList();
     let b = await bottomList();
     let c = await hotList();
     let d = await floorList();
     let e = await yanChang();
-    if(a&&b&&c&&d&&e){
-
-    this.slidelist = a.data.silde_list;
-    this.clasifylist = b.data.classify_list;
-    this.htolist = c.data.hots_show_list;
-    this.floorlist = d.data.tour_show_list;
-    this.yanchang = e.data;
-    this.loadFlag=false;
+    if (a && b && c && d && e) {
+      this.slidelist = a.data.silde_list;
+      this.clasifylist = b.data.classify_list;
+      this.htolist = c.data.hots_show_list;
+      this.floorlist = d.data.tour_show_list;
+      this.yanchang = e.data;
+      this.loadFlag = false;
     }
-    
-    this.$nextTick(() => {
-       this.mySwiper = new Swiper(".swiper-container", {
-      autoplay: 2000, //可选选项，自动滑动
-      loop: true
-    })
-      })
-    
-     this.$nextTick(() => {
-       let wrapper = document.querySelector('')
-       let scroll = new BScroll(wrapper, {});
-    })
-     
   },
-   mounted(){
+  updated() {
+    this.$nextTick(() => {
+      this.mySwiper = new Swiper(".swiper-container", {
+        autoplay: 2000, //可选选项，自动滑动
+        loop: true
+      });
+    });
 
-    
-    
-
-
-   }
-}
-
+    this.$nextTick(() => {
+      let wrapper = document.querySelector("");
+      let scroll = new BScroll(wrapper, {});
+    });
+  },
+  mounted(){
+    this.$observe.$on("curcity", (data) => {
+      console.log("aaaaaa",data)
+      this.currentcity = data;
+      console.log(this.currentcity)
+    });
+  }
+};
 </script>
 
 
 <style>
-.home{
+.home {
 
 }
 
@@ -248,9 +247,8 @@ data() {
   z-index: 3;
   width: 100%;
 }
-.scroll_inside{
-  overflow:hidden;
-
+.scroll_inside {
+  overflow: hidden;
 }
 .nav {
   height: 0.44rem;
@@ -523,14 +521,14 @@ data() {
   width: 100%;
   padding-bottom: 0.4rem;
 }
-.sing>p{
+.sing > p {
   height: 0.24rem;
   font-size: 0.2rem;
   font-weight: 700;
-    color: #232323;
-  padding-left: .15rem;
-   
-    line-height: .24rem;
+  color: #232323;
+  padding-left: 0.15rem;
+
+  line-height: 0.24rem;
 }
 .sing .bg {
   height: 1.76rem;
@@ -547,14 +545,12 @@ data() {
   height: 0.24rem;
   font-size: 0.24rem;
   font-weight: 700;
- 
 }
 .bg .right p:nth-of-type(2) {
   overflow: hidden;
   height: 0.24rem;
   font-size: 0.12rem;
   margin-top: 0.18rem;
- 
 }
 .bg .right h3 {
   height: 0.44rem;
@@ -569,18 +565,17 @@ data() {
 .flow {
   width: 100%;
 }
-.flowitem_wrap{
- white-space: nowrap;
- overflow: auto;
- padding-left: 0.15rem;
- 
+.flowitem_wrap {
+  white-space: nowrap;
+  overflow: auto;
+  padding-left: 0.15rem;
 }
-.flow_img{
+.flow_img {
   width: 100%;
   height: 1.46rem;
 }
 
-.flow_img img{
+.flow_img img {
   width: 100%;
   height: 100%;
 }
@@ -588,14 +583,13 @@ data() {
   width: 1.07rem;
   height: 2.06rem;
   display: inline-block;
-   margin-right: 0.13rem;
+  margin-right: 0.13rem;
 }
-.flow_item h3{
+.flow_item h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 0.14rem 0
-
+  margin: 0.14rem 0;
 }
 .bg .left img {
   width: 100%;
@@ -604,6 +598,4 @@ data() {
 .sing .flow {
   height: 2.21rem;
 }
-
-
 </style>

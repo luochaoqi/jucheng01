@@ -61,19 +61,19 @@
                 </ul>
             </div>
             <div class="lcq-conter">
-                <ul class="conter-ul">
-                    <li v-for="(item,index) in lists" :key="index">
-                        <p class="p01">
-                            <img :src="item.pic">
-                        </p>
-                        <div class="conter-li-box">
-                            <span>{{item.show_time_bottom}}-{{item.show_time_top}}</span>
-                            <h3>{{item.name}}</h3>
-                            <i>{{item.venue_name}}</i>
-                            <p>￥280 起</p>
-                        </div>
-                    </li>
-                </ul>
+                    <ul class="conter-ul">
+                        <li v-for="(item,index) in lists" :key="index">
+                            <p class="p01">
+                                <img :src="item.pic">
+                            </p>
+                            <div class="conter-li-box">
+                                <span>{{item.show_time_bottom}}-{{item.show_time_top}}</span>
+                                <h3>{{item.name}}</h3>
+                                <i>{{item.venue_name}}</i>
+                                <p>￥280 起</p>
+                            </div>
+                        </li>
+                    </ul>
             </div>
         </div>
     </div>
@@ -99,7 +99,12 @@ export default {
     mounted(){
         console.log(this.$refs.movieBody);
         this.scroll=new BScroll(this.$refs.movieBody);
+    
+        
+        // console.log(this.$refs.movieBody);
+        // this.scroll=new BScroll(this.$refs.movieBody);
     }
+
 
    
 }
@@ -307,6 +312,10 @@ export default {
     width: 100%;
     height: 100%;
 }
+div{
+    width: 100%;
+}
+
 .conter-ul{
     width: 100%;
     height:100%;

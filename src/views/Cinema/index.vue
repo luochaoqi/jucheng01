@@ -56,6 +56,16 @@ export default {
       this.loadingFlag = true;
     }
     this.list = data.data.theatre_list;
+  },
+  // mounted() {
+  //   this.scroll = new BScroll(this.$refs.cinemaBody)
+  // }
+  
+  methods:{
+    route(){
+      
+      this.$router.push("/detail/222")
+    }
   }
 };
 </script>

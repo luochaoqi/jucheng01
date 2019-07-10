@@ -4,7 +4,7 @@
     <div class="nav_wrap">
       <div class="nav">
         <div class="local fla">
-          <span @click="toZimulu">全国</span>
+          <span>全国</span>
         </div>
         <div class="inpu fla">
           <span>搜索热门演出</span>
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="opa">
-          <div class="opera">
+          <div class="opera" @click="toZimulu">
             <div class="ver"></div>
             
             <a href >
@@ -238,9 +238,6 @@ data() {
 
 
 <style>
-.home{
-
-}
 
 .nav_wrap {
   position: fixed;

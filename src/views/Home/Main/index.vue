@@ -1,5 +1,6 @@
 <template>
 <div class="home">
+  <Loading v-if="loadFlag"></Loading>
     <div class="nav_wrap">
       <div class="nav">
         <div class="local fla">
@@ -18,8 +19,9 @@
         </div>
       </div>
     </div>
-
+   
     <div class="box_wrap">
+      <div class="scroll_inside">
       <div class="box">
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -160,14 +162,15 @@
           </div>
         </div>
       </div>
+   </div>
     </div>
-    
   </div>
 
 
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 import {
   slideList,
   bottomList,
@@ -189,21 +192,26 @@ data() {
       htolist: [],
       floorlist: [],
       mySwiper: "",
-      yanchang: []
+      yanchang: [],
+      loadFlag:true
     };
   },
-  async created() {
+  async created() {    
     let a = await slideList();
     let b = await bottomList();
     let c = await hotList();
     let d = await floorList();
     let e = await yanChang();
-    console.log(e);
+    if(a&&b&&c&&d&&e){
+
     this.slidelist = a.data.silde_list;
     this.clasifylist = b.data.classify_list;
     this.htolist = c.data.hots_show_list;
     this.floorlist = d.data.tour_show_list;
     this.yanchang = e.data;
+    this.loadFlag=false;
+    }
+    
     this.$nextTick(() => {
        this.mySwiper = new Swiper(".swiper-container", {
       autoplay: 2000, //可选选项，自动滑动
@@ -211,20 +219,39 @@ data() {
     })
       })
     
+     this.$nextTick(() => {
+       let wrapper = document.querySelector('')
+       let scroll = new BScroll(wrapper, {});
+    })
+     
   },
+   mounted(){
+
+    
+    
+
+
+   }
 }
 
 </script>
 
 
 <style>
+.home{
+
+}
+
 .nav_wrap {
   position: fixed;
   top: 0;
   z-index: 3;
   width: 100%;
 }
+.scroll_inside{
+  overflow:hidden;
 
+}
 .nav {
   height: 0.44rem;
   display: flex;

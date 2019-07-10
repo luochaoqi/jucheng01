@@ -35,9 +35,11 @@
 </template>
 
 <script>
+
 import Content from "./content";
 
 export default {
+   
   components:{
       Content
   }

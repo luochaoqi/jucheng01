@@ -8,7 +8,7 @@
             <p></p>
             <p>影院</p>
         </div>
-        <div class="tabnav">
+        <div class="tabnav" @click="tocinema" >
             <p></p>
             <p>票夹</p>
         </div>
@@ -34,6 +34,9 @@ export default {
       methods:{
        toList(){
            this.$router.push("/list")
+       },
+       tocinema(){
+             this.$router.push("/cinema")
        }
       },
  async created(){

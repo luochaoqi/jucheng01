@@ -8,6 +8,7 @@ import Xiangqing from './xiangqing/index.js'
 import Yanchu from './yanchu'
 
 import Homebody from "../views/Home"
+import Detail from './detail'
 Vue.use(Router)
 
 export default new Router({
@@ -20,8 +21,6 @@ export default new Router({
     Cinema,
     Xiangqing,
     Yanchu,
-    
-    
-    
+    Detail
   ]
 })

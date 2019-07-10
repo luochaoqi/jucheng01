@@ -6,7 +6,7 @@
             <div class="conter-box">
                 <router-link to="/yanchu">
                 <ul class="conter-ul">
-                    <li v-for="(item,index) in list" :key="index" >
+                    <li @click="toyanchu" v-for="(item,index) in list" :key="index">
                         <p class="p01" >
                             <img :src="item.pic">
                         </p>
@@ -31,12 +31,18 @@ import BScroll from 'better-scroll'
 import {threList ,musicList,songList,allList,childList,baleiList,abc} from "../../../api/xiangqing.js"
 // import BScroll from "better-scroll";
 export default {
- props:["id"],
+    props:["id"],
     data(){
         return {
             list:[],
             loadFlag:true
         }
+    },
+    methods:{
+       toyanchu(){
+           conlose.log(1111);
+           this.$router.push("/Yanchu");
+       }
     },
     mounted(){
         console.log(this.$refs.movieBody);

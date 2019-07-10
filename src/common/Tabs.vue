@@ -12,7 +12,7 @@
             <p></p>
             <p>票夹</p>
         </div>
-        <div class="tabnav">
+        <div class="tabnav" @click="tomine">
             <p></p>
             <p>我的</p>
         </div>
@@ -37,6 +37,9 @@ export default {
        },
        tocinema(){
              this.$router.push("/cinema")
+       },
+       tomine(){
+           this.$router.push("/mine")
        }
       },
  async created(){

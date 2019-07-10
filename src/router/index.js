@@ -14,14 +14,15 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    local,
-    search,
-    Home,
     Mine,
     Ticket,
-    Cinema,
     Xiangqing,
     Yanchu,
-    Detail
+    Detail,
+    Home,
+    local,
+    search,
+    Cinema,
+    // Show
   ]
 })

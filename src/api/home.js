@@ -31,3 +31,17 @@ export const DetailList  = ()=>http("get","/api/restTicket/getSchDetail?sch_id=9
 //https://m.juooo.com/restTicket/getTour?show_id=37962&venue_id=146&&version=5.1.4&referer=2
 //场地接口
 export const siteList = ()=>http("get","/api/restTicket/getTour?show_id=37962&venue_id=146&&version=5.1.4&referer=2")
+//文体中心接口
+
+export const recreationList= ()=>http("get","/api/Theatre/showListData?tid=2&category=79&page=1")
+
+
+
+
+
+
+// detail 接口
+// 
+export const classifyList= (id)=>http("get","/ppp/Schedule/Schedule/getScheduleInfo",{schedular_id:id,version:"6.0.1",referer:2})
+
+//https://m.juooo.com

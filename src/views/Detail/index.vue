@@ -3,28 +3,28 @@
     <div id="juchengwang">
         <div id="Top">
             <div class="header">
-                <span class="arrows"><i class="iconfont icon-fanhui"></i></span>
+                <span class="arrows" @click="handleBack()"><i class="iconfont icon-fanhui"></i></span>
                 <span class="character">演出详情</span>
                 <span class="right"><i class="iconfont icon-shouye"></i></span>
             </div>
             <div class="middle">
                 <div class="left">
-                    <img :src="list.pic">
+                    <img :src="list.share_pic">
                 </div>
                 <div class="right">
-                    <span>{{list.schedular_name}}</span>
-                    <p>￥{{list.price_interval}}</p>
+                    <span>{{list.share_title}}</span>
+                    <p>￥{{descList.price_range}}</p>
                 </div>
             </div>
         </div>
         <div id="MainOne">
             <div class="left">
                 <div class="L-top">
-                    <span>{{list.time_interval_data.day}}</span>
-                    <span>{{list.time_interval_data.hour}}</span>
+                    <span>{{descList.show_time_data.show_time_start_display}}</span>
+                    <span>{{descList.show_time_data.show_time_end_display}}</span>
                 </div>
                 <div class="L-bottom">
-                    <p>{{list.city_name}} | {{list.venue_name}}</p>
+                    <p>{{descList.city.city_name}} | {{descList.venue.venue_name}}</p>
                 </div>
             </div>
             <div class="right"><i class="iconfont icon-dingwei"></i></div>
@@ -37,7 +37,7 @@
         </div>
         <div id="MainThree">
             <span>入场:</span>
-            <div class="details">{{list.tips}}</div>
+            <div class="details">{{descList.tips.desc}}</div>
         </div>
         <div id="MainFour">
             <div><span>支持:</span></div>
@@ -63,12 +63,12 @@
                 演出介绍
             </div>
             <div class="people">
-                <img src="http://image.juooo.com/group1/M00/02/73/rAoKmVzBJI-AMAGgAAcbKtP4wNE870.png">
+                <img :src="descList.pic">
             </div>
         </div>
         <footer id="footer">
             <div class="left">
-                <img src="images/service.png">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAb1BMVEUAAABmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmbw3/OPAAAAJHRSTlMAH4DvLAySB/Tg05n5rk3opHxiwKCKOhUP4qh0M9jNbli4hSkY6Xp9AAABR0lEQVQ4y52R6ZKCMBAGB8IREg4FEVA8drff/xlXsHZLNAhl/yJDJ1/NjHxInNuzBn22eSzztL7iH+W3c15eABRVllX3r9zt1YCqAxkJagXULs8C0UNaGwH21duCforKNWyfvT3o/UtRw1MxPsFVXrjCaTqmEjbiYAPlpGBIPZfopZjHczA+OPNk8HC8QD6zBLhM74VuMZxkxYZEZkgwf303VkFaur0yBWWbsZGCkcDlBYwUt59hAklk4egSj2CjwQiHHWexeOC7RB88ibNh5wYVyntRQoWRlIMsiXIgFYiWxQhWi6ujVzezfjzDwLv3A++Gga9e4Y0mUqBLcfINqKiRO7EXhOJmB9dYltmDkRU0CeQrvJ8TbGSGPgFI+tsS6hTO4ZyYMWKsAfhqZY4KvdtpRtRFZFlUWTnGLkRXnizQdwBdL5/yC+1CKknvBpjdAAAAAElFTkSuQmCC">
                 <p>客服</p>
             </div>
             <div class="right">
@@ -80,27 +80,32 @@
 
 </template>
 <script>
-import {DetailList, siteList} from '../../api/home.js'
+import {DetailList, siteList,classifyList} from '../../api/home.js'
+// import { constants } from 'crypto';
+// import { constants } from 'crypto';
 export default {
     props:["id"],
     name:"detail",
     data(){
         return{
             list:[],
-            siteList:[]
+            siteList:[],
+            descList:[]
         }
     },
     async created(){
 
-        
-
-        var data = await DetailList();
-        this.list = data.data.scheInfo;
-         
+        var data= await classifyList(this.id)
+        // var data = await DetailList();
+        this.list = data.data.share_data;
+        this.descList = data.data.static_data;
         var siteData = await siteList();
         this.siteList = siteData.data.tourlist;
-        // console.log(this.siteList)
-        // console.log(this.siteList[0].city_name)
+    },
+    methods:{
+        handleBack(){
+            this.$router.back();
+        }
     }
 }
 </script>
@@ -232,12 +237,8 @@ export default {
 .L-top span {
     color: #000;
     font-weight: 700;
-    font-size: 0.19rem;
-}
-
-.L-top span:nth-of-type(2) {
-    font-size: 0.14rem;
-    margin-left: 0.04rem;
+    font-size: 0.12rem;
+    padding-right: 0.1rem;
 }
 
 .L-bottom {
@@ -269,8 +270,7 @@ export default {
 #MainOne .right i {
     position: absolute;
     font-size: 0.3rem;
-    top: 0.03rem;
-    right: 0.05rem;
+    top: -22px;
     color: #ff6942;
     font-weight: 700;
 }
@@ -401,7 +401,7 @@ export default {
 #MainFive .bottom ul {
     height: 1.1rem;
     justify-content: space-around;
-    overflow: auto;
+    overflow-x: auto;
     white-space: nowrap;
 }
 

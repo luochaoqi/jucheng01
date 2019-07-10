@@ -29,7 +29,10 @@
             </div>
         </div>
     </div>
+   
     <router-view></router-view>
+    
+
     <!-- <Content dis="flag" /> -->
 </div>
 </template>

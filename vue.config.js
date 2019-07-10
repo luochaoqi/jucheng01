@@ -8,7 +8,12 @@ module.exports={
                 target:"https://m.juooo.com",
                 pathRewrite: {'^/api' : ''},
                 changeOrigin:true
-            }
+            },
+            "/ppp":{
+                target:"https://api.juooo.com",
+                pathRewrite: {'^/ppp' : ''},
+                changeOrigin:true
+            },
         }
     },
     configureWebpack:{

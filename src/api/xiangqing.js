@@ -41,6 +41,11 @@ export const childList = ()=>http("get","/api/Search/getShowList?category=38&cit
 //芭蕾舞蹈
 
 export const baleiList = ()=>http("get","/api/Search/getShowList?category=86&city_id=1&page=1&keywords=&&version=5.1.4&referer=2")
+// ?schedular_id=&=&referer=2
+// https://api.juooo.com/Schedule/Schedule/getScheduleInfo?schedular_id=94871&version=6.0.1&referer=2
+export const abc = (id)=>http("get","/ppp/Schedule/Schedule/getScheduleInfo",{schedular_id:id,version:"6.0.1",referer:2})
+      
+
 
 
 

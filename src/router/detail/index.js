@@ -1,8 +1,8 @@
 import Detail from "../../views/Detail"
 export default {
-    path:"/detail",
+    path:"/detail/:id",
     component:Detail,
     // component:()=>import("views/cinema"),
-    name:"detail"
-
+    name:"detail",
+    props:true,
 }

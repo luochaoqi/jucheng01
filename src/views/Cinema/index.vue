@@ -7,7 +7,7 @@
      <div class="scroll">
     <BScroll>
       <template>
-        <div id="content" @click="toDudetail">
+        <div id="content" >
           <div class="ModuleOne" v-for="(item,index) in list" :key="index" >
             <div class="top">
               <img class="Img" :src="item.pic" />
@@ -20,9 +20,12 @@
               </a>
             </div>
             <div class="bottom">
-              <div class="swiper" v-for="(item,index) in item.show_list" :key="index">
-                <p>{{item.show_time}}</p>
-                <img :src="item.pic" />
+              <div class="swiper" v-for="(items,index) in item.show_list" :key="index">
+               
+               <p>{{items.show_time}}</p>
+                  <router-link :to="{name:'detail',params: {id:items.id}}">
+                    <img :src="items.pic" />
+                  </router-link>
               </div>
             </div>
           </div>
@@ -58,9 +61,9 @@ export default {
   // }
   
   methods:{
-    toDudetail(){
-      console.log("aaaaa")
-      this.$router.push("/detail")
+    route(){
+      
+      this.$router.push("/detail/222")
     }
   }
 };

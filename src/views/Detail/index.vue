@@ -4,7 +4,7 @@
         <div id="Top">
             <div class="header">
                 <span class="arrows"><i class="iconfont icon-fanhui"></i></span>
-                <span class="character">演出详情</span>
+                <span class="character">演出详情</span><span>{{id}}</span>
                 <span class="right"><i class="iconfont icon-shouye"></i></span>
             </div>
             <div class="middle">
@@ -81,6 +81,7 @@
 </template>
 <script>
 import {DetailList, siteList} from '../../api/home.js'
+import {abc} from '../../api/xiangqing.js'
 export default {
     props:["id"],
     name:"detail",
@@ -93,12 +94,13 @@ export default {
     async created(){
 
         
-
-        var data = await DetailList();
-        this.list = data.data.scheInfo;
+        var ccc=await abc(this.id)
+        console.log(ccc)
+        // var data = await DetailList();
+        // this.list = data.data.scheInfo;
          
-        var siteData = await siteList();
-        this.siteList = siteData.data.tourlist;
+        // var siteData = await siteList();
+        // this.siteList = siteData.data.tourlist;
         // console.log(this.siteList)
         // console.log(this.siteList[0].city_name)
     }

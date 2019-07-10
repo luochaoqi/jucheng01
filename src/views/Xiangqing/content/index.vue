@@ -28,7 +28,7 @@
 
 <script>
 import BScroll from 'better-scroll'
-import {threList ,musicList,songList,allList,childList,baleiList,} from "../../../api/xiangqing.js"
+import {threList ,musicList,songList,allList,childList,baleiList,abc} from "../../../api/xiangqing.js"
 // import BScroll from "better-scroll";
 export default {
  props:["id"],
@@ -43,7 +43,9 @@ export default {
         this.scroll=new BScroll(this.$refs.movieBody);
     },
  async  created(){
-        var a=await allList()
+        var a=await allList();
+        var pratice=await abc();
+        console.log(pratice)
         if(a){
           this.list=a.data.list;
           this.loadFlag=false;
@@ -53,7 +55,14 @@ export default {
 
        this.$nextTick(() => {
        let wrapper = document.querySelector('.area-lcq')
-       let scroll = new BScroll(wrapper, {});
+       let scroll = new BScroll(wrapper, {
+            scrol1Y: true,
+             scrol1X: false,
+             mousewhee1: true,
+            click: true,
+             taps: true
+
+       });
     })
 
 

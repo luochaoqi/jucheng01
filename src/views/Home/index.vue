@@ -7,7 +7,6 @@
 
 
 export default {
-  
   mounted() {
     // this.mySwiper.updateContainerSize();
   }

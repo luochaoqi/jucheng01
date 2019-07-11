@@ -26,7 +26,7 @@
     </div>
 </template>
 
-<script>
+<script scoped>
 import BScroll from 'better-scroll'
 import {threList ,musicList,songList,allList,childList,baleiList,abc} from "../../../api/xiangqing.js"
 // import BScroll from "better-scroll";

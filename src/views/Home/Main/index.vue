@@ -167,7 +167,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import BScroll from "better-scroll";
 import {
   slideList,
@@ -221,7 +221,7 @@ export default {
     });
 
     this.$nextTick(() => {
-      let wrapper = document.querySelector("");
+      // let wrapper = document.querySelector("");
       let scroll = new BScroll(wrapper, {});
     });
   },
@@ -236,10 +236,7 @@ export default {
 </script>
 
 
-<style>
-.home {
-
-}
+<style scoped>
 
 .nav_wrap {
   position: fixed;

@@ -8,10 +8,16 @@
 import BScroll from "better-scroll"
 export default {
     name:"BScroll",
+    data(){
+        return {
+           
+        }
+    },
     mounted(){
         this.scroll = new BScroll(this.$refs.wrapper,{
             click:true,
-        })
+            probeType:1
+        });  
     }
 }
 </script>
@@ -20,5 +26,6 @@ export default {
     .wrapper{
         height:100%;
     }
+ 
 </style>
 

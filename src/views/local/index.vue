@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import { locallist } from "../../api/local.js";
 export default {
   data() {
@@ -71,7 +71,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .loca {
   width: 100%;
   height: 100%;

@@ -38,7 +38,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import { search } from "../../api/search.js";
 import { constants } from "crypto";
 export default {

@@ -5,7 +5,9 @@
             <div class="header">
                 <span class="arrows" @click="handleBack()"><i class="iconfont icon-fanhui"></i></span>
                 <span class="character">演出详情</span>
-                <span class="right"><i class="iconfont icon-shouye"></i></span>
+                <router-link class="right" tag="span" to="/home"> 
+                    <i class="iconfont icon-shouye"></i>
+                </router-link>
             </div>
             <div class="middle">
                 <div class="left">
@@ -81,8 +83,6 @@
 </template>
 <script>
 import {DetailList, siteList,classifyList} from '../../api/home.js'
-// import { constants } from 'crypto';
-// import { constants } from 'crypto';
 export default {
     props:["id"],
     name:"detail",
@@ -94,7 +94,6 @@ export default {
         }
     },
     async created(){
-
         var data= await classifyList(this.id)
         // var data = await DetailList();
         this.list = data.data.share_data;
@@ -110,8 +109,8 @@ export default {
 }
 </script>
 
-<style>
-    #juchengwang {
+<style scoped>
+#juchengwang {
     width: 100%;
     position: absolute;
     top: 0;

@@ -11,7 +11,7 @@
      <div class="scroll">
       <BScroll>  
       <template>
-        <div id="content">
+        <div class="content">
           <div class="ModuleOne" v-for="(item,index) in list" :key="index" >
             <div class="top">
               <img class="Img" :src="item.pic" />
@@ -180,7 +180,7 @@ export default {
   margin-top: 0.18rem;
 }
 
-#content .ModuleOne .bottom {
+.content .ModuleOne .bottom {
   width: max-content;
   height: 2.5rem;
   margin-left: 0.16rem;

@@ -105,6 +105,14 @@ export default {
         handleBack(){
             this.$router.back();
         }
+    },
+ async  activated(){
+         var data= await classifyList(this.id)
+        // var data = await DetailList();
+        this.list = data.data.share_data;
+        this.descList = data.data.static_data;
+        var siteData = await siteList();
+        this.siteList = siteData.data.tourlist;
     }
 }
 </script>

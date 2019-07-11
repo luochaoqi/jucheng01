@@ -2,7 +2,7 @@
     <div class="tabs">
         
         <div class="tabnav" >
-            <p class="first"></p>
+            <p class="first" @click="tohome"></p>
         </div>
         <div class="tabnav" @click="toList">
             <p class="iconfont icon-caidan1 ico"></p>
@@ -32,6 +32,9 @@ export default {
           } 
       },
       methods:{
+          tohome(){
+      this.$router.push("/home")
+          },
        toList(){
            this.$router.push("/list")
        },

@@ -1,7 +1,8 @@
 <template>
 <div class="Rec">
+    <router-view></router-view>
     <div class="header">
-        <a href="#">
+        <a href="#" @click="GoBackClick()">
             <span class="iconfont icon-fanhui"></span>
         </a>
         <div class="content">
@@ -25,10 +26,10 @@
                     <img src="https://m.juooo.com/public/basic/Home/app/app-juooo5/images/index/icon-calendar.png">
                     <p>日历</p>
                 </li>
-                <li>
+                <router-link tag="li" :to="{name:'intro'}">
                     <img src="https://m.juooo.com/public/basic/Home/app/app-juooo5/images/index/icon-theater.png">
                     <p>剧院</p>
-                </li>
+                </router-link>
                 <li>
                     <img src="https://m.juooo.com/public/basic/Home/app/app-juooo5/images/index/icon-offer.png">
                     <p>特惠</p>
@@ -42,9 +43,9 @@
             <a class="stroke" href="#" v-for="(item,index) in list" :key="index">
                 <img :src="item.pic">
                 <div class="particulars">
-                    <p class="music">{{item.schedular_name}}</p>
+                    <p class="music">{{item.name}}</p>
                     <p class="show-time">
-                        <span class="day">{{item.show_time}}</span>
+                        <span class="day">{{item.show_time_top}}</span>
                     </p>
                     <p class="show-add">
                         <span class="add">南山文体中心</span>
@@ -74,13 +75,18 @@ export default {
     async created(){
         var data = await recreationList();
         
-        this.list = data.datas;
+        this.list = data.data.list;
         console.log(this.list)
+    },
+    methods:{
+        GoBackClick(){
+            this.$router.back();
+        }
     }
 }
 </script>
 
-<style>
+<style scoped>
 .Rec{
     position: absolute;
     top: 0;
@@ -88,7 +94,7 @@ export default {
     width: 100%;
     background: white;
 }
-    .header {
+.header {
     width: 100%;
     height: 0.44rem;
     position: fixed;

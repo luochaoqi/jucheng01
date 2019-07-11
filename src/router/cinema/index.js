@@ -1,6 +1,7 @@
 
 import Cinema from "../../views/Cinema"
 import Recreation from "../../views/Cinema/recreation.vue"
+import Introduce from "../../views/Cinema/introduce.vue"
 export default {
     path:"/cinema",
     component:Cinema,
@@ -13,7 +14,14 @@ export default {
         {
             path:"recreation",
             component:Recreation,
-            name:"recreation"
+            name:"recreation",
+            children:[
+                {
+                    path:"intro",
+                    component:Introduce,
+                    name:"intro"
+                }
+            ]
         }
     ]
 }

@@ -92,7 +92,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .loca {
   width: 100%;
   height: 100%;

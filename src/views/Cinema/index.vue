@@ -110,23 +110,26 @@ export default {
   top: 0.43rem;
   bottom: 0.5rem;
 }
-
-#content {
-  width: 100%;
-  background: #fcfcfc;
-  overflow: hidden;
+.scroll::-webkit-scrollbar{
+    display: none;
 }
 
-#content .ModuleOne {
+.content {
+  width: 100%;
+  background: #fcfcfc;
+  /* overflow: auto; */
+}
+
+.content .ModuleOne {
   width: 3.45rem;
   height: 2.8rem;
-  margin-top: 0.1rem;
+  padding-top: 0.1rem;
   margin-left: 0.14rem;
   overflow: hidden;
   background: #fff;
 }
 
-#content .ModuleOne .top {
+.content .ModuleOne .top {
   width: 3.1rem;
   height: 0.5rem;
   background: #fff;
@@ -134,13 +137,13 @@ export default {
   margin-top: 0.14rem;
 }
 
-#content .ModuleOne .top .Img {
+.content .ModuleOne .top .Img {
   width: 0.5rem;
   height: 0.5rem;
   float: left;
 }
 
-#content .ModuleOne .top .main {
+.content .ModuleOne .top .main {
   margin-left: 0.13rem;
   width: 1.9rem;
   height: 0.5rem;
@@ -148,7 +151,7 @@ export default {
   position: relative;
 }
 
-#content .ModuleOne .top .main p:nth-of-type(1) {
+.content .ModuleOne .top .main p:nth-of-type(1) {
   font-size: 0.16rem;
   position: absolute;
   top: 0.1rem;
@@ -156,7 +159,7 @@ export default {
   left: 0;
 }
 
-#content .ModuleOne .top .main p:nth-of-type(2) {
+.content .ModuleOne .top .main p:nth-of-type(2) {
   font-weight: 700;
   font-size: 0.1rem;
   position: absolute;
@@ -164,14 +167,14 @@ export default {
   left: 0;
 }
 
-#content .ModuleOne .top a {
+.content .ModuleOne .top a {
   display: block;
   width: 0.24rem;
   height: 0.35rem;
   float: right;
 }
 
-#content .ModuleOne .top a img {
+.content .ModuleOne .top a img {
   width: 0.14rem;
   height: 0.14rem;
   margin-top: 0.18rem;
@@ -181,25 +184,25 @@ export default {
   width: max-content;
   height: 2.5rem;
   margin-left: 0.16rem;
-  margin-top: 10px;
+  margin-top: 0.1rem;
   overflow-x: auto;
   display: flex;
 }
 
-#content .ModuleOne .bottom .swiper {
+.content .ModuleOne .bottom .swiper {
   width: 1.14rem;
   height: 1.9247rem;
   justify-content: space-around;
   margin-right: 0.1rem;
 }
 
-#content .ModuleOne .bottom .swiper p {
+.content .ModuleOne .bottom .swiper p {
   font-size: 0.14rem;
   color: #ccc;
   text-align: center;
 }
 
-#content .ModuleOne .bottom .swiper img {
+.content .ModuleOne .bottom .swiper img {
   width: 1.07rem;
   height: 1.46rem;
   margin-top: 0.29rem;

@@ -2,18 +2,18 @@
     <div class="tabs">
         
         <div class="tabnav" >
-            <p class="first"></p>
+            <p class="first" @click="tohome"></p>
         </div>
         <div class="tabnav" @click="toList">
-            <p></p>
-            <p>影院</p>
+            <p class="iconfont icon-caidan1 ico"></p>
+            <p>演出</p>
         </div>
         <div class="tabnav" @click="tocinema" >
-            <p></p>
-            <p>票夹</p>
+            <p class="iconfont icon-dingdan ico"></p>
+            <p>剧院</p>
         </div>
         <div class="tabnav" @click="tomine">
-            <p></p>
+            <p class="iconfont icon-wode ico"></p>
             <p>我的</p>
         </div>
 
@@ -32,6 +32,9 @@ export default {
           } 
       },
       methods:{
+          tohome(){
+      this.$router.push("/home")
+          },
        toList(){
            this.$router.push("/list")
        },
@@ -49,6 +52,10 @@ export default {
 </script>
 
 <style>
+.ico{
+    padding-top: 0.05rem;
+    font-size: 0.18rem;
+}
 .tabs {
     position: absolute;
     bottom: 0;
@@ -60,7 +67,7 @@ export default {
 
 .tabnav {
     flex: 1;
-    border: 1px solid red;
+    
     text-align: center;
 
 }
@@ -71,12 +78,13 @@ export default {
 }
 
 .tabnav p:nth-of-type(1) {
-   margin-top: 0.02rem;
+    width: 0.28rem;
     height: 0.28rem;
     margin: 0 auto;
-  background-size:  0.42rem 0.85rem;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAbFBMVEUAAAAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKgso/AAAAI3RSTlMAoJD249lr8d/OwrSUdCgiEg0Fu6t6Vk5HLevam5qLb1MwLww+CtkAAAEsSURBVEjH7dTLjoIwGIZhoJSjICAieNb3/u9xYuxiBuzfzmI2E94VyedjBEODtbW1P60Ojwgdw9puB4UjNdjspKCIhApQkwX3kARiCfSWKSUPHOWklgVCFw5hxf8Gd1Wy/T5sk6rzxntAR2P7um7HSAN7X9zFvMvLMudd3HniO/SRBkw66uHuiQvYvm40zOM4D5PXNRR+eIJyPpUweeELjPNphIsPbhSn5XZCNR64gttyu0HlgTPSdrm1KZkbH2DzadzAwYl3UH8aa9g5sPnMMvOtIja/bpm5HxGb57LMPEkRJ1DZcAWJiDWqseFGoSUcwzmwdoZYwMDTjp+AiItAqHDgQcKDjM1p87hGP7o+zPkkYnPOaWZpczLacUnWmLeAWRvzb2WUwdraL/oCOmw2A/vD0QUAAAAASUVORK5CYII=) no-repeat center
+     background-size: 0.2rem 0.2rem;
+    
 }
+
 .tabs .tabnav .first{
     height:0.42rem;
     width: 0.42rem;

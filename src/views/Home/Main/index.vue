@@ -1,13 +1,13 @@
 <template>
-  <div class="home">
+  <div class="home" >
     <Loading v-if="loadFlag"></Loading>
     <div class="nav_wrap">
       <div class="nav">
         <div class="local fla">
-          <span v-html="currentcity"></span>
+          <span v-html="currentcity" @click="tocity"></span>
         </div>
         <div class="inpu fla">
-          <span>搜索热门演出</span>
+          <span  @click="toSearch"><b class="iconfont icon-sousuo"></b> 搜索热门演出</span>
         </div>
         <div class="imge fla">
           <a href>
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="box_wrap">
+    <div class="box_wrap" @click="toto()">
       <div class="scroll_inside">
         <div class="box">
           <div class="swiper-container">
@@ -36,21 +36,21 @@
           <div class="classify">
             <div class="item">
               <router-link to="/list" v-for="(items,index) in clasifylist" :key="index">
-                <img :src="items.pic" alt />
+                <img :src="items.pic" alt   />
                 <br />
                 <span>{{items.name}}</span>
               </router-link>
             </div>
           </div>
-          <div class="opa" @click="toZimulu()">
+          <div class="opa" >
             <div class="opera">
               <div class="ver"></div>
               <a href>
                 <div class="detail">
-                  <p>橙卡PLUS</p>
+                  <p >橙卡PLUS</p>
                   <p>
                     限时送
-                    <span>100元</span>
+                    <span >100元</span>
                   </p>
                 </div>
                 <div class="pic">
@@ -61,9 +61,9 @@
                 </div>
               </a>
             </div>
-            <div class="opera">
+            <div class="opera" >
               <div class="ver"></div>
-              <a href>
+              <a href >
                 <div class="detail">
                   <p>橙卡PLUS</p>
                   <p>
@@ -81,7 +81,7 @@
             </div>
           </div>
           <div class="opc"></div>
-          <div class="opb">
+          <div class="opb" >
             <li>
               <div class="ver"></div>
               <a href>
@@ -117,10 +117,11 @@
             </li>
           </div>
         </div>
+        <div class="aa" >aa</div>
 
         <div class="hot">
           <div class="hot_title">
-            <span>热门演出</span>
+            <span  >热门演出</span>
           </div>
           <div class="hot_contet">
             <div class="hot_item" v-for="(item,index) in htolist" :key="index">
@@ -166,8 +167,8 @@
   </div>
 </template>
 
-<script>
-import BScroll from "better-scroll";
+<script scoped>
+
 import {
   slideList,
   bottomList,
@@ -178,13 +179,10 @@ import {
 import { constants } from 'crypto';
 
 export default {
-  methods: {
-    toZimulu() {
-      this.$router.push("/Zimulu");
-    }
-  },
+ 
   data() {
     return {
+      currentcity:"全国",
       slidelist: [],
       clasifylist: [],
       htolist: [],
@@ -192,7 +190,7 @@ export default {
       mySwiper: "",
       yanchang: [],
       loadFlag: true,
-      currentcity:"全国"
+      
     };
   },
   async created() {
@@ -206,6 +204,7 @@ export default {
       this.slidelist = a.data.silde_list;
       this.clasifylist = b.data.classify_list;
       this.htolist = c.data.hots_show_list;
+      
       this.floorlist = d.data.tour_show_list;
       this.yanchang = e.data;
       this.loadFlag = false;
@@ -219,17 +218,29 @@ export default {
       });
     });
 
-    this.$nextTick(() => {
-      let wrapper = document.querySelector("");
-      let scroll = new BScroll(wrapper, {});
-    });
+    // this.$nextTick(() => {
+      // let wrapper = document.querySelector("");
+      // let scroll = new BScroll(wrapper, {});
+    // });
   },
   mounted(){
     this.$observe.$on("curcity", (data) => {
-      console.log("aaaaaa",data)
       this.currentcity = data;
-      console.log(this.currentcity)
+      // console.log("aaaaaa",this.currentcity)
     });
+  },
+  methods:{
+     toto(){
+      console.log("aaaa")
+      this.$router.push("zimulu");
+    },
+    tocity(){
+      this.$router.push("/local")
+    },
+    toSearch(){
+      
+      this.$router.push("/search")
+    }
   }
 };
 </script>
@@ -527,6 +538,7 @@ export default {
   height: 1.76rem;
   padding: 0.14rem 0 0.14rem 0.15rem;
   background: rgb(100, 90, 78);
+  color: white;
 }
 .bg .right {
   float: left;
@@ -562,6 +574,7 @@ export default {
   white-space: nowrap;
   overflow: auto;
   padding-left: 0.15rem;
+  padding-top: 0.15rem;
 }
 .flow_img {
   width: 100%;
@@ -573,10 +586,10 @@ export default {
   height: 100%;
 }
 .flow_item {
-  width: 1.07rem;
+  width: 1rem;
   height: 2.06rem;
   display: inline-block;
-  margin-right: 0.13rem;
+  margin-right: 0.1rem;
 }
 .flow_item h3 {
   overflow: hidden;

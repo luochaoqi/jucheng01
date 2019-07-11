@@ -2,7 +2,7 @@
   <div class="search_wrap">
     <div class="search">
       <input type="text" placeholder="搜索热门演出" v-model="inputVal" />
-      <span>取消</span>
+      <span @click="goback">取消</span>
     </div>
     <div class="hot" v-if="showflag">
       <p>热门搜索</p>
@@ -33,12 +33,12 @@
           <p>{{item.min_price}}起</p>
         </div>
       </li>
-      <li></li>
+     
     </ul>
   </div>
 </template>
 
-<script>
+<script scoped>
 import { search } from "../../api/search.js";
 import { constants } from "crypto";
 export default {
@@ -52,12 +52,14 @@ export default {
   },
   filters: {
     capitalize: function(value) {
-      var reg = /^<\w*>$/;
       if (!value) return "";
-      value = value.replace(reg, "");
-
-      return value;
+      return value.replace(/<[^>]+>/g,"");
     }
+  },
+  methods:{
+   goback(){
+     this.$router.push("/home")
+   }
   },
   watch: {
     inputVal(newVal) {
@@ -142,6 +144,7 @@ ul > li {
 }
 .img {
   float: left;
+  width: 1.22rem;
 }
 .img img {
   width: 1.21rem;
@@ -150,7 +153,7 @@ ul > li {
 .content {
   float: left;
   padding-left: 0.15rem;
-  width: 2.5rem;
+  width: 1.9rem;
 }
 
 .content p:nth-of-type(1) {
@@ -165,7 +168,7 @@ ul > li {
   overflow: hidden;
 }
 .content p:nth-of-type(2) {
-  font-size: 0.13rem;
+  font-size: 0.12rem;
 }
 </style>
 

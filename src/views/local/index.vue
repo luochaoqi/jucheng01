@@ -1,7 +1,8 @@
 <template>
   <div class="loca">
+    
     <div class="header">
-      <span> ＜ </span>
+      <span @click="goback()"> ＜ </span>
       <p>切换城市</p>
     </div>
     <div class="wrap">
@@ -32,46 +33,66 @@
 </template>
 
 <script>
-import { locallist } from "../../api/local.js";
+ import { locallist } from "../../api/local.js";
+//  import  {messageBox} from "../../common/message/index.js"
+//  import messageBox from "../../common/message/index.vue"
+
 export default {
+  
   data() {
     return {
-      citylist: [],
-      hotlist:[],
-      curcity:"全国"
+       citylist: [],
+       hotlist:[],
+        curcity:"全国"
     };
   },
-  async created() {
-    let data = await locallist();
-   let hot =[]
-    this.citylist = data.city_list;
-    console.log(this.citylist)
-    for(var key in this.citylist){
-      
-        this.citylist[key].lists.map((data)=>{
-           if(data.is_city==0){
-              hot.push(data.name)
-           }
-        })
-    }
-     hot.unshift("全国")
-    this.hotlist=hot;
  
+  async created(){
+   
+    let data = await locallist();
+    let hot =[]
+     this.citylist = data.city_list;
+     console.log(this.citylist)
+     for(var key in this.citylist){
+      
+         this.citylist[key].lists.map((data)=>{
+            if(data.is_city==0){
+               hot.push(data.name)
+            }
+         })
+   }
+     hot.unshift("全国")
+     this.hotlist=hot;
+
+  //  messageBox({
+  //      title:"当前位置",
+  //      content:"深圳",
+  //      btn:"确认",
+  //      handleOk:()=>{
+  //             this.handleModifyCityInfo(data.data);
+  //             this.$refs.com.handleGetMovie();
+  //               }
+  //  })
+    
   },
   methods:{
+
+    goback(){
+       this.$router.go(-1)
+    },
       chekoutCity(city){
           this.curcity=city;
           var a=city
-          console.log(a)
           this.$observe.$emit("curcity",a)
-          this.$router.push("/home");
+          this.$observe.$emit("backxiangqing",a)
+          this.$router.go(-1)
           
       }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .loca {
   width: 100%;
   height: 100%;
@@ -95,7 +116,7 @@ export default {
   font-weight: 700;
 }
 .wrap{
-    padding: 0.1rem 0.15rem 0;
+    padding: 0.4rem 0.15rem 0;
     overflow: auto;
     height: 100%;
 }

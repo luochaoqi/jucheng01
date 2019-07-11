@@ -2,7 +2,7 @@
     <diV id="App">
         <div id="lcq-head">
             <div class="head-box">
-                <i class="iconfont  icon-fanhui"></i>
+                <i class="iconfont  icon-fanhui" @click="toback"></i>
                 <p>欢聚橙卡</p>
                 <div class="box01">
                    <span></span>&nbsp;<span></span>&nbsp;<span></span>
@@ -72,7 +72,11 @@
 
 <script>
 export default {
-
+  methods:{
+      toback(){
+          this.$router.go(-1)
+      }
+  }
 }
 </script>
 

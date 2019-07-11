@@ -79,7 +79,7 @@
     </div>
 </template>
 
-<script>
+<script scoped>
 import {yanChu,Xunhuan} from "../../api/xiangqing.js"
 export default {
  async created(){

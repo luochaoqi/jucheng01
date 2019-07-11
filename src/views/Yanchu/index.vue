@@ -4,7 +4,7 @@
             <div id="lcq-header01">
                 <div class="header01">
                     <div class="header01-prelude">
-                        <i class="iconfont icon-fanhui"></i>
+                        <i class="iconfont icon-fanhui" @click="toxiangqing()"></i>
                         <p>演出详情</p>
                         <i class="iconfont icon-qq"></i>
                         <i class="iconfont icon-shouye"></i>
@@ -103,6 +103,11 @@ export default {
         
         // console.log(this.$refs.movieBody);
         // this.scroll=new BScroll(this.$refs.movieBody);
+    },
+    methods:{
+        toxiangqing(){
+            this.$router.push("/list");
+        }
     }
 
 

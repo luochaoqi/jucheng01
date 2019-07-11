@@ -42,10 +42,9 @@
               </router-link>
             </div>
           </div>
-          <div class="opa">
+          <div class="opa" @click="toZimulu()">
             <div class="opera">
               <div class="ver"></div>
-
               <a href>
                 <div class="detail">
                   <p>橙卡PLUS</p>
@@ -181,7 +180,7 @@ import { constants } from 'crypto';
 export default {
   methods: {
     toZimulu() {
-      this.$router.push("/zimulu");
+      this.$router.push("/Zimulu");
     }
   },
   data() {
@@ -237,9 +236,6 @@ export default {
 
 
 <style>
-.home {
-
-}
 
 .nav_wrap {
   position: fixed;
@@ -397,9 +393,6 @@ export default {
   display: flex;
   justify-content: space-around;
   margin-bottom: 0.05rem;
-}
-
-.opera {
 }
 
 .opera .pic {

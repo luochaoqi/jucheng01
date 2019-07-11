@@ -6,7 +6,7 @@
             <div class="conter-box">
                 <router-link to="/yanchu">
                 <ul class="conter-ul">
-                    <li @click="toyanchu" v-for="(item,index) in list" :key="index">
+                    <li @click="toyanchu()" v-for="(item,index) in list" :key="index">
                         <p class="p01" >
                             <img :src="item.pic">
                         </p>

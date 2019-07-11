@@ -4,10 +4,10 @@
     <div class="nav_wrap">
       <div class="nav">
         <div class="local fla">
-          <span v-html="currentcity"></span>
+          <span v-html="currentcity" @click="tocity"></span>
         </div>
         <div class="inpu fla">
-          <span>搜索热门演出</span>
+          <span  @click="toSearch"><b class="iconfont icon-sousuo"></b> 搜索热门演出</span>
         </div>
         <div class="imge fla">
           <a href>
@@ -42,16 +42,15 @@
               </router-link>
             </div>
           </div>
-          <div class="opa">
-            <div class="opera">
+          <div class="opa" >
+            <div class="opera" >
               <div class="ver"></div>
-
               <a href>
                 <div class="detail">
-                  <p>橙卡PLUS</p>
+                  <p >橙卡PLUS</p>
                   <p>
                     限时送
-                    <span>100元</span>
+                    <span @click="toZimulu()">100元</span>
                   </p>
                 </div>
                 <div class="pic">
@@ -181,11 +180,13 @@ import { constants } from 'crypto';
 export default {
   methods: {
     toZimulu() {
+      console.log("1111")
       this.$router.push("/zimulu");
     }
   },
   data() {
     return {
+      currentcity:"全国",
       slidelist: [],
       clasifylist: [],
       htolist: [],
@@ -193,7 +194,7 @@ export default {
       mySwiper: "",
       yanchang: [],
       loadFlag: true,
-      currentcity:"全国"
+      
     };
   },
   async created() {
@@ -207,6 +208,7 @@ export default {
       this.slidelist = a.data.silde_list;
       this.clasifylist = b.data.classify_list;
       this.htolist = c.data.hots_show_list;
+      
       this.floorlist = d.data.tour_show_list;
       this.yanchang = e.data;
       this.loadFlag = false;
@@ -227,19 +229,25 @@ export default {
   },
   mounted(){
     this.$observe.$on("curcity", (data) => {
-      console.log("aaaaaa",data)
       this.currentcity = data;
-      console.log(this.currentcity)
+      // console.log("aaaaaa",this.currentcity)
     });
+  },
+  methods:{
+    tocity(){
+      this.$router.push("/local")
+    },
+    toSearch(){
+      
+      this.$router.push("/search")
+    }
   }
 };
 </script>
 
 
 <style>
-.home {
 
-}
 
 .nav_wrap {
   position: fixed;
@@ -399,8 +407,7 @@ export default {
   margin-bottom: 0.05rem;
 }
 
-.opera {
-}
+
 
 .opera .pic {
   float: left;
@@ -534,6 +541,7 @@ export default {
   height: 1.76rem;
   padding: 0.14rem 0 0.14rem 0.15rem;
   background: rgb(100, 90, 78);
+  color: white;
 }
 .bg .right {
   float: left;
@@ -569,6 +577,7 @@ export default {
   white-space: nowrap;
   overflow: auto;
   padding-left: 0.15rem;
+  padding-top: 0.15rem;
 }
 .flow_img {
   width: 100%;
@@ -580,10 +589,10 @@ export default {
   height: 100%;
 }
 .flow_item {
-  width: 1.07rem;
+  width: 1rem;
   height: 2.06rem;
   display: inline-block;
-  margin-right: 0.13rem;
+  margin-right: 0.1rem;
 }
 .flow_item h3 {
   overflow: hidden;

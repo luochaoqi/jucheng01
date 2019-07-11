@@ -1,7 +1,9 @@
 <template>
     <div id="App">
         <Loading v-if="loadFlag"></Loading>
+        
             <div id="lcq-conter" >
+    <van-loading type="spinner" color="#1989fa" v-if="reloadflag" />
         <div class="area-lcq" ref="movieBody">
             <div class="conter-box">
                 <router-link to="/yanchu">
@@ -35,7 +37,8 @@ export default {
     data(){
         return {
             list:[],
-            loadFlag:true
+            loadFlag:true,
+            reloadflag:false,
         }
     },
     methods:{
@@ -45,8 +48,49 @@ export default {
        }
     },
     mounted(){
-        console.log(this.$refs.movieBody);
-        this.scroll=new BScroll(this.$refs.movieBody);
+        // console.log(this.$refs.movieBody);
+        // this.scroll=new BScroll(this.$refs.movieBody);
+         this.$nextTick(() => {
+             var that=this;
+        this.scroll = new BScroll(this.$refs.movieBody,{
+            click:true,
+            scrollX:true,
+            tap: true,
+           freeScroll:true,
+         
+            mouseWheel: true,
+            pullDownRefresh: {
+       
+        threshold: 30,
+     
+        stop: 30
+      }
+        })
+        this.scroll.on("scroll",(e)=>{
+            if(e.y>40){
+             this.reloadflag=true;
+                
+            }
+
+        })
+    this.scroll.on('pullingDown', () => {
+      console.log('处理下拉刷新操作')
+      setTimeout(() => {
+        console.log('asfsaf')
+       this.reloadflag=false;
+        this.scroll.finishPullDown()
+      }, 2000 )
+    })
+
+         })
+        
+
+
+
+
+
+
+
     },
  async  created(){
         var a=await allList();

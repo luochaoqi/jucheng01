@@ -24,7 +24,7 @@
         
             <div class="lcq-location">
                 <i class="i"></i>
-                <span class="sp">深圳</span>
+                <span class="sp" @click="todingwei()">{{locacity}}</span>
                 <i class="iconfont icon-icon-test"></i>
             </div>
         </div>
@@ -42,13 +42,26 @@
 import Content from "./content";
 
 export default {
-   
+   data(){
+       return {
+        locacity:"深圳"
+       }
+   },
+   created(){
+      this.$observe.$on("backxiangqing",(data)=>{
+          this.locacity=data;
+          console.log(this.locacity)
+      })       
+   },
   components:{
       Content
   },
   methods:{
       tohome(){
         this.$router.push("/Home");
+      },
+      todingwei(){
+         this.$router.push("/local"); 
       }
   }
 }
